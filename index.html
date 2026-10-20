@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>InfoSpot</title>
+<meta name="description" content="InfoSpot: reservoir levels, offline maps, estimated depth and weather for fishing in Spain. Android app in public beta.">
+<style>
+  :root { --bg: #f4f6f8; --card: #ffffff; --text: #171c1f; --muted: #5a646b; --primary: #0f3b5a; --on-primary: #ffffff; }
+  @media (prefers-color-scheme: dark) { :root { --bg: #101417; --card: #1b2228; --text: #e6eaed; --muted: #9aa5ad; --primary: #8cc7f0; --on-primary: #08263a; } }
+  body { margin: 0; font-family: system-ui, sans-serif; background: var(--bg); color: var(--text); }
+  main { max-width: 560px; margin: 0 auto; padding: 32px 16px; }
+  .card { background: var(--card); border-radius: 16px; padding: 24px 20px; }
+  h1 { font-size: 2rem; margin: 0 0 4px; }
+  p, li { color: var(--muted); line-height: 1.5; }
+  a { color: var(--primary); }
+  a.button { display: block; text-align: center; padding: 14px; border-radius: 999px; text-decoration: none; font-weight: 600; margin-top: 10px; background: var(--primary); color: var(--on-primary); }
+  footer { margin-top: 20px; font-size: 0.9rem; }
+</style>
+</head>
+<body>
+<main>
+  <div class="card">
+    <h1>InfoSpot</h1>
+    <p id="tagline">A fishing companion for the reservoirs of Spain. Android app in public beta.</p>
+    <ul id="features">
+      <li>Water level of 56 reservoirs, updated every week, with history since 1988.</li>
+      <li>Orthophotos, topographic maps and historical aerial photos, also offline.</li>
+      <li>Estimated depth (beta, not for navigation) on 42 reservoirs.</li>
+      <li>Your spots and tracks, which never leave your phone.</li>
+      <li>Wind, pressure, rain, sun and moon.</li>
+    </ul>
+    <a class="button" id="download" href="https://github.com/Danii204/FishingApp-releases/releases/latest">Download for Android</a>
+  </div>
+  <footer>
+    <p><a id="privacy" href="privacy/">Privacy policy</a> · <a href="mailto:soporte@infospot.es">soporte@infospot.es</a></p>
+  </footer>
+</main>
+<script>
+  // Spanish text for Spanish browsers; the page is static and sends nothing.
+  if ((navigator.language || "").toLowerCase().indexOf("es") === 0) {
+    document.documentElement.lang = "es";
+    document.getElementById("tagline").textContent = "Tu compañero de pesca para los embalses de España. App para Android en beta pública.";
+    var li = document.getElementById("features").children;
+    var es = [
+      "El nivel de 56 embalses, actualizado cada semana, con su historia desde 1988.",
+      "Ortofotos, mapas topográficos y fotos aéreas históricas, también sin cobertura.",
+      "Profundidad estimada (beta, no usar para navegar) en 42 embalses.",
+      "Tus puntos y tracks, que nunca salen de tu móvil.",
+      "Viento, presión, lluvia, sol y luna."
+    ];
+    for (var i = 0; i < li.length; i++) li[i].textContent = es[i];
+    document.getElementById("download").textContent = "Descargar para Android";
+    document.getElementById("privacy").textContent = "Política de privacidad";
+    document.getElementById("privacy").href = "privacidad/";
+  }
+</script>
+</body>
+</html>

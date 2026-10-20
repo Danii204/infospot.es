@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>InfoSpot spot</title>
+<style>
+  :root { --bg: #f4f6f8; --card: #ffffff; --text: #171c1f; --muted: #5a646b; --primary: #0f3b5a; --on-primary: #ffffff; }
+  @media (prefers-color-scheme: dark) { :root { --bg: #101417; --card: #1b2228; --text: #e6eaed; --muted: #9aa5ad; --primary: #8cc7f0; --on-primary: #08263a; } }
+  body { margin: 0; font-family: system-ui, sans-serif; background: var(--bg); color: var(--text); }
+  main { max-width: 480px; margin: 0 auto; padding: 24px 16px; }
+  .card { background: var(--card); border-radius: 16px; padding: 20px; }
+  h1 { font-size: 1.5rem; margin: 0 0 4px; }
+  p { color: var(--muted); margin: 4px 0 16px; }
+  a.button { display: block; text-align: center; padding: 14px; border-radius: 999px; text-decoration: none; font-weight: 600; margin-top: 10px; }
+  .primary { background: var(--primary); color: var(--on-primary); }
+  .secondary { border: 1px solid var(--muted); color: var(--text); }
+</style>
+</head>
+<body>
+<main>
+  <div class="card">
+    <h1 id="name">InfoSpot</h1>
+    <p id="what"></p>
+    <a class="button primary" id="open" href="#">Open in InfoSpot</a>
+    <a class="button secondary" id="download" href="https://github.com/Danii204/FishingApp-releases/releases/latest">Download InfoSpot (Android)</a>
+    <a class="button secondary" id="map" href="#">See it on a map</a>
+  </div>
+  <p id="note">InfoSpot is a fishing app for Android. Everything stays on the phone: this page only reads the link.</p>
+</main>
+<script>
+  // Static page: it only reads the spot from its own link; nothing is sent anywhere.
+  var q = new URLSearchParams(location.search);
+  var lat = parseFloat(q.get("lat")), lon = parseFloat(q.get("lon"));
+  var es = (navigator.language || "").toLowerCase().indexOf("es") === 0;
+  var types = es
+    ? { spot: "Pesquero", "catch": "Captura", bite: "Picada", structure: "Estructura", danger: "Peligro", access: "Acceso", other: "Otro" }
+    : { spot: "Spot", "catch": "Catch", bite: "Bite", structure: "Structure", danger: "Danger", access: "Access", other: "Other" };
+  document.getElementById("name").textContent = q.get("n") || "InfoSpot";
+  var parts = [types[q.get("t")] || types.other];
+  if (q.get("w")) parts.push(q.get("w") + " kg");
+  if (!isNaN(lat) && !isNaN(lon)) parts.push(lat.toFixed(5) + ", " + lon.toFixed(5));
+  document.getElementById("what").textContent = parts.join(" · ");
+  var latest = "https://github.com/Danii204/FishingApp-releases/releases/latest";
+  document.getElementById("open").href = "intent://spot?" + q.toString() +
+    "#Intent;scheme=infospot;S.browser_fallback_url=" + encodeURIComponent(latest) + ";end";
+  document.getElementById("map").href = "https://www.openstreetmap.org/?mlat=" + lat + "&mlon=" + lon + "#map=15/" + lat + "/" + lon;
+  if (es) {
+    document.documentElement.lang = "es";
+    document.getElementById("open").textContent = "Abrir en InfoSpot";
+    document.getElementById("download").textContent = "Descargar InfoSpot (Android)";
+    document.getElementById("map").textContent = "Verlo en un mapa";
+    document.getElementById("note").textContent = "InfoSpot es una app de pesca para Android. Todo se queda en el móvil: esta página solo lee el enlace.";
+  }
+</script>
+</body>
+</html>
