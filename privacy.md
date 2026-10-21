@@ -51,18 +51,22 @@ depth maps and is deleted when no longer needed.
 
 ## The website and the depth server
 
-The website (`infospot.es/app`) runs in your browser and keeps nothing about you on a server: your
-favourite reservoirs stay in the browser's own storage. If you tap the location button, your position
-is shown on the map in the browser and is not sent anywhere. Your browser connects directly to the
-same map, photo and level services as the app (see "External services" below) and to Open-Meteo for
-the weather, which is asked for each reservoir's position, not yours; like any website, those
-services see your IP address.
+The website (`infospot.es/app`) runs in your browser and keeps nothing about you on a server. Your
+favourite reservoirs, your spots, tracks and their photos stay in the browser's own storage on your
+device (clearing the browser's data deletes them; GPX export makes a copy). Your browser connects
+directly to the same map, photo and level services as the app (see "External services" below) and to
+Open-Meteo for the weather; like any website, those services see your IP address.
+
+Your position is used only if you allow it in the browser: to show it on the map with your speed and
+heading, to record a track and mark spots (kept in the browser) and, on Home, for the weather where
+you are, asked to Open-Meteo with the position rounded to about 1 km. With the estimated depth on,
+the depth where you are is asked to the depth server below, which does not keep positions.
 
 The estimated depth is served by InfoSpot's depth server on Cloudflare Workers (Cloudflare acts as
 a processor): the website asks it for map pictures of one reservoir and for the depth at a point you
-tap (a later app version will also download its depth maps from it). To protect the depth maps from
+tap or where you are (a later app version will also download its depth maps from it). To protect the depth maps from
 bulk copying (see the [terms of use](https://infospot.es/terms/)), the server limits how many requests each visitor makes and records
-each request type, reservoir and a code made from the IP address with a secret that changes every
+each request type, reservoir and a code made from the IP address (never the position asked) with a secret that changes every
 month (the IP itself is not stored). Those records are kept three months and are used only to detect
 and act against bulk downloading (legitimate interest, GDPR article 6.1.f).
 

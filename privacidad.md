@@ -52,20 +52,26 @@ usa para corregir los mapas de profundidad y se borra cuando deja de hacer falta
 
 ## La web y el servidor de profundidad
 
-La web (`infospot.es/app`) funciona en tu navegador y no guarda nada sobre ti en ningún servidor:
-tus embalses favoritos se quedan en el almacenamiento del propio navegador. Si pulsas el botón de
-ubicación, tu posición se muestra en el mapa dentro del navegador y no se envía a ningún sitio. Tu
-navegador se conecta directamente a los mismos servicios de mapas, fotos y niveles que la app (ver
-"Servicios externos" más abajo) y a Open-Meteo para el tiempo, que se pide para la posición de cada
-embalse, no la tuya; como cualquier web, esos servicios ven tu dirección IP.
+La web (`infospot.es/app`) funciona en tu navegador y no guarda nada sobre ti en ningún servidor.
+Tus embalses favoritos, tus marcas, tracks y sus fotos se quedan en el almacenamiento del propio
+navegador en tu dispositivo (si borras los datos del navegador, se borran; exportar un GPX hace una
+copia). Tu navegador se conecta directamente a los mismos servicios de mapas, fotos y niveles que la
+app (ver "Servicios externos" más abajo) y a Open-Meteo para el tiempo; como cualquier web, esos
+servicios ven tu dirección IP.
+
+Tu posición solo se usa si lo permites en el navegador: para mostrarla en el mapa con tu velocidad y
+rumbo, grabar un track y marcar puntos (guardados en el navegador) y, en Inicio, para el tiempo donde
+estás, que se pide a Open-Meteo con la posición redondeada a 1 km. Con la profundidad estimada
+activada, la profundidad donde estás se pide al servidor de profundidad de abajo, que no guarda
+posiciones.
 
 La profundidad estimada la sirve el servidor de profundidad de InfoSpot en Cloudflare Workers
 (Cloudflare actúa como encargado del tratamiento): la web le pide imágenes del mapa de un embalse y
-la profundidad en el punto que tocas (una versión posterior de la app también descargará de él sus
+la profundidad en el punto que tocas o donde estás (una versión posterior de la app también descargará de él sus
 mapas de profundidad). Para proteger los mapas de profundidad de la copia masiva (ver las
 [condiciones de uso](https://infospot.es/condiciones/)), el
 servidor limita cuántas peticiones hace cada visitante y registra el tipo de petición, el embalse y
-un código obtenido de la dirección IP con un secreto que cambia cada mes (la IP no se guarda). Esos
+un código obtenido de la dirección IP (nunca la posición consultada) con un secreto que cambia cada mes (la IP no se guarda). Esos
 registros se conservan tres meses y solo se usan para detectar y actuar contra la descarga masiva
 (interés legítimo, artículo 6.1.f del RGPD).
 
