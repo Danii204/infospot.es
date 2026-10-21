@@ -36,6 +36,7 @@
   .btn { display: inline-block; padding: 14px 24px; border-radius: 999px; text-decoration: none; font-weight: 700; font-size: 1rem; }
   .btn.main { background: #fff; color: #0f3b5a; }
   .btn.ghost { border: 1.5px solid #ffffffaa; color: #fff; }
+  .btn.soon { cursor: default; opacity: 0.85; font-weight: 600; }
   .hero .ios { font-size: 0.9rem; color: #bfe0f4; margin-top: 14px; }
   .phones { display: flex; justify-content: center; gap: 14px; }
   .phones img { width: 31%; max-width: 200px; aspect-ratio: 1 / 2; border-radius: 18px; border: 4px solid #0b2234; box-shadow: 0 12px 30px #0006; background: #0b2234; }
@@ -55,14 +56,12 @@
   tr:last-child td { border-bottom: 0; }
   .yes { color: #1b7f3b; font-weight: 700; } .no { color: var(--muted); }
   @media (prefers-color-scheme: dark) { .yes { color: #7fd6a0; } }
-  .notice { background: var(--card); border-left: 5px solid #e0a37a; border-radius: 12px; padding: 16px 20px; color: var(--muted); }
-  .notice b { color: var(--text); }
   footer { padding: 48px 0 40px; color: var(--muted); font-size: 0.9rem; }
   footer p { margin: 6px 0; }
 </style>
 </head>
 <body>
-<div class="beta-bar" id="beta-bar">InfoSpot is in <b>public beta</b>: it may have mistakes, and the estimated depth is not yet checked against measured depths. Tell us at <a href="mailto:soporte@infospot.es">soporte@infospot.es</a>.</div>
+<div class="beta-bar" id="beta-bar">InfoSpot is in <b>public beta</b>. Something not right? Tell us at <a href="mailto:soporte@infospot.es">soporte@infospot.es</a>.</div>
 
 <div class="wrap">
   <header class="top">
@@ -84,7 +83,7 @@
       <p id="lead">Water levels, maps and old aerial photos, the estimated depth, the weather and your spots, in one place. In the browser, on your phone or your computer, and as an Android app.</p>
       <div class="cta">
         <a class="btn main" href="app/" id="open">Open InfoSpot in the browser</a>
-        <a class="btn ghost" href="https://github.com/Danii204/FishingApp-releases/releases/latest" id="android">Android app (beta)</a>
+        <span class="btn ghost soon" id="android">Android: coming soon to Google Play</span>
       </div>
       <p class="ios" id="ios">On an iPhone? Use the web version: the iOS app will come later.</p>
     </div>
@@ -135,15 +134,11 @@
   </div>
 </section>
 
-<section class="block">
-  <div class="wrap">
-    <div class="notice" id="notice"><b>A public beta.</b> InfoSpot may have mistakes. The depth is an estimate from satellite images and terrain models, not yet checked against measured depths: never use it to navigate. If you measured the real depth somewhere, report it from the map and help us correct it.</div>
-  </div>
-</section>
 
 <footer>
   <div class="wrap">
     <p><a id="privacy" href="privacy/">Privacy policy</a> · <a id="terms" href="terms/">Terms of use</a> · <a href="mailto:soporte@infospot.es">soporte@infospot.es</a></p>
+    <p id="depth-note">The estimated depth is a guide, not for navigation.</p>
     <p id="sources">Data: Ministry for the Ecological Transition, embalses.net, Portuguese Environment Agency, IGN and CNIG, DGT, Copernicus, EOX and Open-Meteo.</p>
   </div>
 </footer>
@@ -154,14 +149,14 @@
     document.documentElement.lang = "es";
     document.title = "InfoSpot: pesca en los embalses de España";
     var set = function (id, html) { var e = document.getElementById(id); if (e) e.innerHTML = html; };
-    set("beta-bar", "InfoSpot está en <b>beta pública</b>: puede tener fallos, y la profundidad estimada aún no está contrastada con medidas reales. Escríbenos a <a href=\"mailto:soporte@infospot.es\">soporte@infospot.es</a>.");
+    set("beta-bar", "InfoSpot está en <b>beta pública</b>. ¿Algo no va bien? Escríbenos a <a href=\"mailto:soporte@infospot.es\">soporte@infospot.es</a>.");
     set("nav-features", "Funciones");
     set("nav-platforms", "Web y Android");
     set("nav-open", "Abrir");
     set("title", "Tu compañero de pesca para los embalses de España");
     set("lead", "El nivel de los embalses, mapas y fotos aéreas antiguas, la profundidad estimada, el tiempo y tus puntos, en un solo sitio. En el navegador, desde el móvil o el ordenador, y como app para Android.");
     set("open", "Abrir InfoSpot en el navegador");
-    set("android", "App para Android (beta)");
+    set("android", "Android: muy pronto en Google Play");
     set("ios", "¿Tienes iPhone? Usa la versión web: la app para iOS llegará más adelante.");
     set("f-title", "Qué hace");
     set("f-lead", "Hecha por un pescador para pescadores, para los embalses de black bass de España (y el Baixo Sabor en Portugal).");
@@ -183,11 +178,11 @@
     var rows = document.querySelectorAll("#platforms tbody td:first-child");
     var rs = ["Niveles, historia y tiempo", "Mapas, fotos antiguas y profundidad estimada", "Puntos, tracks y GPX", "Mapas sin cobertura", "Resumen diario y avisos del tiempo", "Grabar un track con la pantalla apagada"];
     for (var j = 0; j < rows.length; j++) rows[j].textContent = rs[j];
-    set("notice", "<b>Una beta pública.</b> InfoSpot puede tener fallos. La profundidad es una estimación hecha con imágenes de satélite y modelos del terreno, aún sin contrastar con profundidades medidas: no la uses nunca para navegar. Si has medido la profundidad real en algún sitio, avísanos desde el mapa y ayúdanos a corregirla.");
     set("privacy", "Política de privacidad");
     document.getElementById("privacy").href = "privacidad/";
     set("terms", "Condiciones de uso");
     document.getElementById("terms").href = "condiciones/";
+    set("depth-note", "La profundidad estimada es orientativa, no sirve para navegar.");
     set("sources", "Datos: Ministerio para la Transición Ecológica, embalses.net, Agência Portuguesa do Ambiente, IGN y CNIG, DGT, Copernicus, EOX y Open-Meteo.");
     var shots = [["shot1", "es-home", "Inicio: el tiempo y la luna de hoy"], ["shot2", "es-depth", "Mapa con la profundidad estimada de un embalse"], ["shot3", "es-reservoir", "Página de un embalse: nivel y previsión"]];
     for (var k = 0; k < shots.length; k++) { var im = document.getElementById(shots[k][0]); im.src = "img/" + shots[k][1] + ".webp"; im.alt = shots[k][2]; }

@@ -24,10 +24,10 @@
     <h1 id="name">InfoSpot</h1>
     <p id="what"></p>
     <a class="button primary" id="open" href="#">Open in InfoSpot</a>
-    <a class="button secondary" id="download" href="https://github.com/Danii204/FishingApp-releases/releases/latest">Download InfoSpot (Android)</a>
+    <a class="button secondary" id="download" href="https://infospot.es/app/">Open InfoSpot on the web</a>
     <a class="button secondary" id="map" href="#">See it on a map</a>
   </div>
-  <p id="note">InfoSpot is a fishing app for Android. Everything stays on the phone: this page only reads the link.</p>
+  <p id="note">InfoSpot is a fishing app for Android and the web. This page only reads the link.</p>
 </main>
 <script>
   // Static page: it only reads the spot from its own link; nothing is sent anywhere.
@@ -42,16 +42,16 @@
   if (q.get("w")) parts.push(q.get("w") + " kg");
   if (!isNaN(lat) && !isNaN(lon)) parts.push(lat.toFixed(5) + ", " + lon.toFixed(5));
   document.getElementById("what").textContent = parts.join(" · ");
-  var latest = "https://github.com/Danii204/FishingApp-releases/releases/latest";
+  var latest = "https://infospot.es/";
   document.getElementById("open").href = "intent://spot?" + q.toString() +
     "#Intent;scheme=infospot;S.browser_fallback_url=" + encodeURIComponent(latest) + ";end";
   document.getElementById("map").href = "https://www.openstreetmap.org/?mlat=" + lat + "&mlon=" + lon + "#map=15/" + lat + "/" + lon;
   if (es) {
     document.documentElement.lang = "es";
     document.getElementById("open").textContent = "Abrir en InfoSpot";
-    document.getElementById("download").textContent = "Descargar InfoSpot (Android)";
+    document.getElementById("download").textContent = "Abrir InfoSpot en la web";
     document.getElementById("map").textContent = "Verlo en un mapa";
-    document.getElementById("note").textContent = "InfoSpot es una app de pesca para Android. Todo se queda en el móvil: esta página solo lee el enlace.";
+    document.getElementById("note").textContent = "InfoSpot es una app de pesca para Android y la web. Esta página solo lee el enlace.";
   }
 </script>
 </body>
