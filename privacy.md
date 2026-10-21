@@ -52,7 +52,7 @@ depth maps and is deleted when no longer needed.
 ## The website and the depth server
 
 The website (`infospot.es/app`) runs in your browser and keeps nothing about you on a server. Your
-favourite reservoirs, your spots, tracks and their photos stay in the browser's own storage on your
+favourite reservoirs, your settings (such as the language), your spots, tracks and their photos stay in the browser's own storage on your
 device (clearing the browser's data deletes them; GPX export makes a copy). Your browser connects
 directly to the same map, photo and level services as the app (see "External services" below) and to
 Open-Meteo for the weather; like any website, those services see your IP address.

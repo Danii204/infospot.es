@@ -53,7 +53,7 @@ usa para corregir los mapas de profundidad y se borra cuando deja de hacer falta
 ## La web y el servidor de profundidad
 
 La web (`infospot.es/app`) funciona en tu navegador y no guarda nada sobre ti en ningún servidor.
-Tus embalses favoritos, tus marcas, tracks y sus fotos se quedan en el almacenamiento del propio
+Tus embalses favoritos, tus ajustes (como el idioma), tus marcas, tracks y sus fotos se quedan en el almacenamiento del propio
 navegador en tu dispositivo (si borras los datos del navegador, se borran; exportar un GPX hace una
 copia). Tu navegador se conecta directamente a los mismos servicios de mapas, fotos y niveles que la
 app (ver "Servicios externos" más abajo) y a Open-Meteo para el tiempo; como cualquier web, esos
