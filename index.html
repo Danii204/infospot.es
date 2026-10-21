@@ -4,17 +4,21 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>InfoSpot: fishing on the reservoirs of Spain</title>
-<meta name="description" content="InfoSpot: reservoir levels, maps and historical photos, estimated depth, weather and your spots, for fishing on the reservoirs of Spain. Web and Android, in public beta.">
-<meta name="theme-color" content="#0f3b5a">
+<meta name="description" content="InfoSpot: reservoir levels, maps and historical photos, estimated depth, weather and your spots, for fishing on the reservoirs of Spain. On the web and Android.">
+<meta name="theme-color" content="#0e3b5c">
 <link rel="icon" href="img/favicon.png">
 <link rel="apple-touch-icon" href="img/icon-192.png">
 <style>
-  :root { --bg: #f4f6f8; --card: #ffffff; --text: #171c1f; --muted: #5a646b; --primary: #0f3b5a; --on-primary: #ffffff;
-    --accent: #f5d3bd; --on-accent: #5a2a0c; --line: #d5dbe0; --hero: linear-gradient(160deg, #0f3b5a 0%, #1d6a8f 60%, #4bafd8 100%); }
+  /* The app's colours and font (Space Grotesk, OFL, served with the web app). */
+  @font-face { font-family: "Space Grotesk"; font-weight: 400; font-display: swap; src: url("app/data/space_grotesk_regular.ttf") format("truetype"); }
+  @font-face { font-family: "Space Grotesk"; font-weight: 600; font-display: swap; src: url("app/data/space_grotesk_semibold.ttf") format("truetype"); }
+  @font-face { font-family: "Space Grotesk"; font-weight: 700; font-display: swap; src: url("app/data/space_grotesk_bold.ttf") format("truetype"); }
+  :root { --bg: #eef2f6; --card: #ffffff; --text: #101826; --muted: #44505c; --primary: #0e3b5c; --on-primary: #ffffff;
+    --accent: #ffdcc7; --on-accent: #331200; --line: #c3ccd5; --hero: linear-gradient(160deg, #0f3b5a 0%, #1d6a8f 60%, #4bafd8 100%); }
   @media (prefers-color-scheme: dark) { :root { --bg: #101417; --card: #1b2228; --text: #e6eaed; --muted: #9aa5ad; --primary: #8cc7f0;
     --on-primary: #08263a; --accent: #6b3a1c; --on-accent: #ffdcc6; --line: #2c363e; --hero: linear-gradient(160deg, #08263a 0%, #0f3b5a 60%, #1d6a8f 100%); } }
   * { box-sizing: border-box; }
-  body { margin: 0; font-family: system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.5; }
+  body { margin: 0; font-family: "Space Grotesk", system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.5; }
   a { color: var(--primary); }
   .wrap { max-width: 1080px; margin: 0 auto; padding: 0 20px; }
   .beta-bar { background: var(--accent); color: var(--on-accent); font-size: 0.9rem; text-align: center; padding: 8px 16px; }
@@ -22,7 +26,7 @@
   header.top { display: flex; align-items: center; gap: 12px; padding: 14px 0; }
   header.top img { width: 36px; height: 36px; border-radius: 10px; }
   header.top .name { font-weight: 800; font-size: 1.25rem; }
-  .badge { background: var(--accent); color: var(--on-accent); border-radius: 999px; padding: 2px 10px; font-size: 0.8rem; font-weight: 700; }
+  .tag { background: var(--accent); color: var(--on-accent); border-radius: 6px; padding: 1px 6px; font-size: 0.7rem; font-weight: 600; vertical-align: 2px; }
   header.top nav { margin-left: auto; display: flex; gap: 18px; align-items: center; }
   header.top nav a { text-decoration: none; color: var(--text); font-weight: 600; }
   header.top nav a.hide-small { display: none; }
@@ -61,13 +65,12 @@
 </style>
 </head>
 <body>
-<div class="beta-bar" id="beta-bar">InfoSpot is in <b>public beta</b>. Something not right? Tell us at <a href="mailto:soporte@infospot.es">soporte@infospot.es</a>.</div>
+<div class="beta-bar" id="beta-bar"><b>New:</b> InfoSpot has just launched. Tell us what you think at <a href="mailto:soporte@infospot.es">soporte@infospot.es</a>.</div>
 
 <div class="wrap">
   <header class="top">
     <img src="img/icon-192.png" alt="">
     <span class="name">InfoSpot</span>
-    <span class="badge">Beta</span>
     <nav>
       <a class="hide-small" href="#features" id="nav-features">Features</a>
       <a class="hide-small" href="#platforms" id="nav-platforms">Web and Android</a>
@@ -105,7 +108,7 @@
       <div class="card"><svg viewBox="0 0 24 24"><path d="M9 4 3 6v14l6-2 6 2 6-2V4l-6 2-6-2z"/><path d="M9 4v14m6-12v14"/></svg>
         <h3>Maps and old photos</h3><p>Orthophoto, IGN and topographic maps, and aerial photos from 1956 on: see the old roads, walls and riverbed now under water.</p></div>
       <div class="card"><svg viewBox="0 0 24 24"><path d="M3 6c3 0 3 2 6 2s3-2 6-2 3 2 6 2"/><path d="M5 11c2.5 2 4.5 3 7 3s4.5-1 7-3"/><path d="M8 16c1.3 1 2.6 1.5 4 1.5s2.7-.5 4-1.5"/></svg>
-        <h3>Estimated depth (beta)</h3><p>Depth colours and contour lines every 5 m on 42 reservoirs, at today's level or the one you choose.</p></div>
+        <h3>Estimated depth <span class="tag">Beta</span></h3><p>Depth colours and contour lines every 5 m on 42 reservoirs, at today's level or the one you choose.</p></div>
       <div class="card"><svg viewBox="0 0 24 24"><path d="M7 18a4 4 0 1 1 .8-7.9A5.5 5.5 0 0 1 18.5 11 3.5 3.5 0 0 1 18 18z"/></svg>
         <h3>Weather</h3><p>Now, the next 24 hours and 7 days at each reservoir: wind and gusts, pressure, rain and humidity.</p></div>
       <div class="card"><svg viewBox="0 0 24 24"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"/></svg>
@@ -149,7 +152,7 @@
     document.documentElement.lang = "es";
     document.title = "InfoSpot: pesca en los embalses de España";
     var set = function (id, html) { var e = document.getElementById(id); if (e) e.innerHTML = html; };
-    set("beta-bar", "InfoSpot está en <b>beta pública</b>. ¿Algo no va bien? Escríbenos a <a href=\"mailto:soporte@infospot.es\">soporte@infospot.es</a>.");
+    set("beta-bar", "<b>Novedad:</b> InfoSpot acaba de llegar. Cuéntanos qué te parece en <a href=\"mailto:soporte@infospot.es\">soporte@infospot.es</a>.");
     set("nav-features", "Funciones");
     set("nav-platforms", "Web y Android");
     set("nav-open", "Abrir");
@@ -164,13 +167,13 @@
     var es = [
       ["Nivel de los embalses", "56 embalses, actualizados cada semana, con su historia desde 1988 y la media de 10 años."],
       ["Mapas y fotos antiguas", "Ortofoto, mapas del IGN y topográfico, y fotos aéreas desde 1956: mira los caminos, muros y el cauce antiguo que ahora están bajo el agua."],
-      ["Profundidad estimada (beta)", "Colores de profundidad e isóbatas cada 5 m en 42 embalses, al nivel de hoy o al que elijas."],
+      ["Profundidad estimada <span class=\"tag\">Beta</span>", "Colores de profundidad e isóbatas cada 5 m en 42 embalses, al nivel de hoy o al que elijas."],
       ["Tiempo", "Ahora, las próximas 24 horas y 7 días en cada embalse: viento y rachas, presión, lluvia y humedad."],
       ["Sol y luna", "Amanecer y atardecer, la fase de la luna, su salida y puesta, y los periodos solunares."],
       ["Tus puntos y tracks", "Marca capturas, picadas, estructuras y peligros, graba tus tracks y llévatelos en GPX. Se quedan en tu dispositivo."]
     ];
     for (var i = 0; i < cards.length; i++) {
-      cards[i].querySelector("h3").textContent = es[i][0];
+      cards[i].querySelector("h3").innerHTML = es[i][0];
       cards[i].querySelector("p").textContent = es[i][1];
     }
     set("p-title", "Web y Android");
