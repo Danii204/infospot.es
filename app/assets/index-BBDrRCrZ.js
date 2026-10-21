@@ -49,11 +49,11 @@
       <svg viewBox="-4 -4 228 56" class="spark" role="img" aria-label="${u.pressureTrend}">
         <polyline points="${c}" class="past"/><polyline points="${l}" class="next"/><circle cx="${s(n[3],3).split(`,`)[0]}" cy="${s(n[3],3).split(`,`)[1]}" r="3.5"/>
       </svg>
-    </div>`}function lt(e,t,n){let r=0,i=()=>{let a=new Date;a.setDate(a.getDate()+r);let o=et(a,t,n);e.innerHTML=`
+    </div>`}function lt(e,t,n){let r=0,i=()=>{let a=new Date;a.setDate(a.getDate()+r);let o=et(a,t,n),s=a.toLocaleDateString(l,{weekday:`long`,day:`numeric`,month:`long`});e.innerHTML=`
       <div class="sunmoon">
         <div class="sm-head">
           <button class="nav-day" data-step="-1" aria-label="-1">‹</button>
-          <b>${a.toLocaleDateString(l,{weekday:`long`,day:`numeric`,month:`long`})}</b>
+          <b>${s.charAt(0).toUpperCase()+s.slice(1)}</b>
           <button class="nav-day" data-step="1" aria-label="+1">›</button>
         </div>
         <div class="sm-moon">${nt(o.illumination,o.waxing)}
