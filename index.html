@@ -15,6 +15,7 @@
   p, li { color: var(--muted); line-height: 1.5; }
   a { color: var(--primary); }
   a.button { display: block; text-align: center; padding: 14px; border-radius: 999px; text-decoration: none; font-weight: 600; margin-top: 10px; background: var(--primary); color: var(--on-primary); }
+  a.button.secondary { background: none; border: 1px solid var(--muted); color: var(--text); }
   footer { margin-top: 20px; font-size: 0.9rem; }
 </style>
 </head>
@@ -30,10 +31,11 @@
       <li>Your spots and tracks, which never leave your phone.</li>
       <li>Wind, pressure, rain, sun and moon.</li>
     </ul>
-    <a class="button" id="download" href="https://github.com/Danii204/FishingApp-releases/releases/latest">Download for Android</a>
+    <a class="button" id="web" href="app/">Open the web version</a>
+    <a class="button secondary" id="download" href="https://github.com/Danii204/FishingApp-releases/releases/latest">Download for Android</a>
   </div>
   <footer>
-    <p><a id="privacy" href="privacy/">Privacy policy</a> · <a href="mailto:soporte@infospot.es">soporte@infospot.es</a></p>
+    <p><a id="privacy" href="privacy/">Privacy policy</a> · <a id="terms" href="terms/">Terms of use</a> · <a href="mailto:soporte@infospot.es">soporte@infospot.es</a></p>
   </footer>
 </main>
 <script>
@@ -50,7 +52,10 @@
       "Viento, presión, lluvia, sol y luna."
     ];
     for (var i = 0; i < li.length; i++) li[i].textContent = es[i];
+    document.getElementById("web").textContent = "Abrir la versión web";
     document.getElementById("download").textContent = "Descargar para Android";
+    document.getElementById("terms").textContent = "Condiciones de uso";
+    document.getElementById("terms").href = "condiciones/";
     document.getElementById("privacy").textContent = "Política de privacidad";
     document.getElementById("privacy").href = "privacidad/";
   }

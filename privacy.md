@@ -5,7 +5,7 @@ title: InfoSpot privacy
 
 # InfoSpot privacy
 
-Last updated: 2026-10-20.
+Last updated: 2026-10-21.
 
 **Summary: InfoSpot does not send your data to anyone, including the author.** Everything stays
 on your phone (and in your own Android backup, if you use it).
@@ -41,13 +41,40 @@ has one, and a link to a static page on the app's website (`infospot.es`, hosted
 Whoever opens the link loads that page from GitHub, which sees their IP address like any website;
 the page only reads the link and sends nothing. Notes are never shared.
 
+## Reporting a depth
+
+Nothing is sent unless you tap **Report the real depth** on the map and then send the email your
+email app opens. That email goes to soporte@infospot.es and carries what you see in it: the
+reservoir, the point you tapped, the depth and day you typed, the app's estimate and level there,
+your note and the app version, plus your email address as the sender. It is used only to correct the
+depth maps and is deleted when no longer needed.
+
+## The website and the depth server
+
+The website (`infospot.es/app`) runs in your browser and keeps nothing about you on a server: your
+favourite reservoirs stay in the browser's own storage. If you tap the location button, your position
+is shown on the map in the browser and is not sent anywhere. Your browser connects directly to the
+same map, photo and level services as the app (see "External services" below) and to Open-Meteo for
+the weather, which is asked for each reservoir's position, not yours; like any website, those
+services see your IP address.
+
+The estimated depth is served by InfoSpot's depth server on Cloudflare Workers (Cloudflare acts as
+a processor): the website asks it for map pictures of one reservoir and for the depth at a point you
+tap (a later app version will also download its depth maps from it). To protect the depth maps from
+bulk copying (see the [terms of use](https://infospot.es/terms/)), the server limits how many requests each visitor makes and records
+each request type, reservoir and a code made from the IP address with a secret that changes every
+month (the IP itself is not stored). Those records are kept three months and are used only to detect
+and act against bulk downloading (legitimate interest, GDPR article 6.1.f).
+
 ## External services
 
 The app connects to these services. Like any connection, they can see your phone's IP address:
 
-- embalses.net: reservoir levels (once a day and when you refresh).
+- InfoSpot's website (`infospot.es`, on GitHub Pages): the reservoir levels, read from the sources
+  below by a scheduled job and published as one file (once a day and when you refresh).
+- embalses.net: reservoir levels, only when that file cannot be downloaded or is out of date.
 - Agência Portuguesa do Ambiente (`apambiente.pt`): the weekly bulletin with the level of the
-  Portuguese reservoirs (at most once a week).
+  Portuguese reservoirs (at most once a week), in the same case.
 - IGN / CNIG (`www.ign.es`): map tiles.
 - IGN (`www.ign.es/wms/pnoa-historico`): historical aerial photos, only while one is shown on the map
   or being downloaded. The requests carry the map area, not your GPS position.

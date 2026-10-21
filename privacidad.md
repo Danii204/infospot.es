@@ -6,7 +6,7 @@ lang: es
 
 # Privacidad de InfoSpot
 
-Última actualización: 2026-10-20.
+Última actualización: 2026-10-21.
 
 **Resumen: InfoSpot no envía tus datos a nadie, tampoco al autor.** Todo se guarda en tu móvil
 (y en tu propia copia de seguridad de Android, si la usas).
@@ -42,13 +42,44 @@ si la tiene y un enlace a una página estática de la web de la app (`infospot.e
 Pages). Quien abre el enlace carga esa página desde GitHub, que ve su dirección IP como cualquier
 web; la página solo lee el enlace y no envía nada. Las notas nunca se comparten.
 
+## Informar de una profundidad
+
+No se envía nada salvo que pulses **Informar de la profundidad real** en el mapa y después envíes el
+correo que abre tu app de correo. Ese correo llega a soporte@infospot.es y lleva lo que ves en él: el
+embalse, el punto que tocaste, la profundidad y el día que escribiste, la estimación y el nivel de
+la app ahí, tu nota y la versión de la app, además de tu dirección de correo como remitente. Solo se
+usa para corregir los mapas de profundidad y se borra cuando deja de hacer falta.
+
+## La web y el servidor de profundidad
+
+La web (`infospot.es/app`) funciona en tu navegador y no guarda nada sobre ti en ningún servidor:
+tus embalses favoritos se quedan en el almacenamiento del propio navegador. Si pulsas el botón de
+ubicación, tu posición se muestra en el mapa dentro del navegador y no se envía a ningún sitio. Tu
+navegador se conecta directamente a los mismos servicios de mapas, fotos y niveles que la app (ver
+"Servicios externos" más abajo) y a Open-Meteo para el tiempo, que se pide para la posición de cada
+embalse, no la tuya; como cualquier web, esos servicios ven tu dirección IP.
+
+La profundidad estimada la sirve el servidor de profundidad de InfoSpot en Cloudflare Workers
+(Cloudflare actúa como encargado del tratamiento): la web le pide imágenes del mapa de un embalse y
+la profundidad en el punto que tocas (una versión posterior de la app también descargará de él sus
+mapas de profundidad). Para proteger los mapas de profundidad de la copia masiva (ver las
+[condiciones de uso](https://infospot.es/condiciones/)), el
+servidor limita cuántas peticiones hace cada visitante y registra el tipo de petición, el embalse y
+un código obtenido de la dirección IP con un secreto que cambia cada mes (la IP no se guarda). Esos
+registros se conservan tres meses y solo se usan para detectar y actuar contra la descarga masiva
+(interés legítimo, artículo 6.1.f del RGPD).
+
 ## Servicios externos
 
 La app se conecta a estos servicios. Como cualquier conexión, ven la dirección IP de tu móvil:
 
-- embalses.net: niveles de los embalses (una vez al día y cuando actualizas a mano).
+- La web de InfoSpot (`infospot.es`, en GitHub Pages): los niveles de los embalses, leídos de las
+  fuentes de abajo por una tarea programada y publicados en un solo archivo (una vez al día y cuando
+  actualizas a mano).
+- embalses.net: niveles de los embalses, solo cuando ese archivo no se puede descargar o está
+  desfasado.
 - Agência Portuguesa do Ambiente (`apambiente.pt`): el boletín semanal con el nivel de los embalses
-  portugueses (como mucho una vez por semana).
+  portugueses (como mucho una vez por semana), en el mismo caso.
 - IGN / CNIG (`www.ign.es`): teselas del mapa.
 - IGN (`www.ign.es/wms/pnoa-historico`): fotos aéreas históricas, solo mientras se muestra una en el
   mapa o se descarga. Las peticiones llevan la zona del mapa, no tu posición GPS.
