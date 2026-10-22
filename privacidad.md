@@ -59,6 +59,12 @@ copia). Tu navegador se conecta directamente a los mismos servicios de mapas, fo
 app (ver "Servicios externos" más abajo) y a Open-Meteo para el tiempo; como cualquier web, esos
 servicios ven tu dirección IP.
 
+Para saber cuánta gente la visita, las páginas de la web cargan Cloudflare Web Analytics (Cloudflare
+actúa como encargado del tratamiento). Cuenta las visitas, las páginas vistas, el país, el tipo de
+dispositivo y de navegador, la web desde la que llegas y lo que tarda en cargar la página. No usa
+cookies, no guarda nada en tu navegador y no te identifica ni te sigue entre webs (interés legítimo,
+artículo 6.1.f del RGPD).
+
 Tu posición solo se usa si lo permites en el navegador: para mostrarla en el mapa con tu velocidad y
 rumbo, grabar un track y marcar puntos (guardados en el navegador) y, en Inicio, para el tiempo donde
 estás, que se pide a Open-Meteo con la posición redondeada a 1 km. Con la profundidad estimada

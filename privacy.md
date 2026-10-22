@@ -57,6 +57,11 @@ device (clearing the browser's data deletes them; GPX export makes a copy). Your
 directly to the same map, photo and level services as the app (see "External services" below) and to
 Open-Meteo for the weather; like any website, those services see your IP address.
 
+To know how many people visit it, the website's pages load Cloudflare Web Analytics (Cloudflare acts
+as a processor). It counts visits, the pages seen, the country, the type of device and browser, the
+site you came from and how fast the page loaded. It uses no cookies, keeps nothing in your browser
+and does not identify you or follow you across sites (legitimate interest, GDPR article 6.1.f).
+
 Your position is used only if you allow it in the browser: to show it on the map with your speed and
 heading, to record a track and mark spots (kept in the browser) and, on Home, for the weather where
 you are, asked to Open-Meteo with the position rounded to about 1 km. With the estimated depth on,
