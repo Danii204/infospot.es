@@ -62,6 +62,18 @@ as a processor). It counts visits, the pages seen, the country, the type of devi
 site you came from and how fast the page loaded. It uses no cookies, keeps nothing in your browser
 and does not identify you or follow you across sites (legitimate interest, GDPR article 6.1.f).
 
+To know which parts of the website are used, it also sends InfoSpot's depth server short anonymous
+events: the screen opened, the reservoir whose page you open, and when you turn on the depth, a
+historical photo or a base map, save a spot, start or stop a track, share, export or import GPX,
+change a favourite or the language, open a day of the forecast, search or use your position (only
+that it was used, never the position), and a sign that the page is still open every 4 minutes
+while you look at it. Each is stored with the country and the type of device of the
+request, the language, a random code of that page visit kept only in the page's memory, and a
+visitor code made from the IP address and the browser with a secret that changes every day (the IP is
+not stored), so a visitor can be counted within a day but not followed from one day to the next.
+Nothing is written to your browser. They are stored by Cloudflare in the EU, kept 90 days and used
+only for these statistics (legitimate interest, GDPR article 6.1.f).
+
 Your position is used only if you allow it in the browser: to show it on the map with your speed and
 heading, to record a track and mark spots (kept in the browser) and, on Home, for the weather where
 you are, asked to Open-Meteo with the position rounded to about 1 km. With the estimated depth on,

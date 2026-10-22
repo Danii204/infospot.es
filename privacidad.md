@@ -65,6 +65,19 @@ dispositivo y de navegador, la web desde la que llegas y lo que tarda en cargar 
 cookies, no guarda nada en tu navegador y no te identifica ni te sigue entre webs (interés legítimo,
 artículo 6.1.f del RGPD).
 
+Para saber qué partes de la web se usan, también envía al servidor de profundidad de InfoSpot eventos
+anónimos y breves: la pantalla que abres, el embalse cuya ficha abres, y cuando activas la
+profundidad, una foto histórica o un mapa base, guardas una marca, empiezas o terminas un track,
+compartes, exportas o importas un GPX, cambias un favorito o el idioma, abres un día de la previsión,
+buscas o usas tu posición (solo que se ha usado, nunca la posición), y una señal de que la página
+sigue abierta cada 4 minutos mientras la miras. Cada uno se guarda con el país y
+el tipo de dispositivo de la petición, el idioma, un código al azar de esa visita a la página que solo
+existe en la memoria de la página, y un código de visitante hecho con la dirección IP y el navegador
+con un secreto que cambia cada día (la IP no se guarda), de modo que se puede contar a un visitante
+dentro de un día pero no seguirlo de un día a otro. No se escribe nada en tu navegador. Los guarda
+Cloudflare en la UE durante 90 días y solo se usan para estas estadísticas (interés legítimo, artículo
+6.1.f del RGPD).
+
 Tu posición solo se usa si lo permites en el navegador: para mostrarla en el mapa con tu velocidad y
 rumbo, grabar un track y marcar puntos (guardados en el navegador) y, en Inicio, para el tiempo donde
 estás, que se pide a Open-Meteo con la posición redondeada a 1 km. Con la profundidad estimada
