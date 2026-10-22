@@ -68,7 +68,7 @@ artículo 6.1.f del RGPD).
 Para saber qué partes de la web se usan, también envía al servidor de profundidad de InfoSpot eventos
 anónimos y breves: la pantalla que abres, el embalse cuya ficha abres, y cuando activas la
 profundidad, una foto histórica o un mapa base, guardas una marca, empiezas o terminas un track,
-compartes, exportas o importas un GPX, cambias un favorito o el idioma, abres un día de la previsión,
+compartes, exportas o importas un GPX, cambias un favorito o el idioma, terminas o saltas el tour de bienvenida, abres un día de la previsión,
 buscas o usas tu posición (solo que se ha usado, nunca la posición), y una señal de que la página
 sigue abierta cada 4 minutos mientras la miras. Cada uno se guarda con el país y
 el tipo de dispositivo de la petición, el idioma, un código al azar de esa visita a la página que solo
