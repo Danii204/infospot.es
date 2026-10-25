@@ -5,7 +5,7 @@ title: InfoSpot privacy
 
 # InfoSpot privacy
 
-Last updated: 2026-10-21.
+Last updated: 2026-10-25.
 
 **Summary: InfoSpot does not send your data to anyone, including the author.** Everything stays
 on your phone (and in your own Android backup, if you use it).
@@ -63,9 +63,11 @@ site you came from and how fast the page loaded. It uses no cookies, keeps nothi
 and does not identify you or follow you across sites (legitimate interest, GDPR article 6.1.f).
 
 To know which parts of the website are used, it also sends InfoSpot's depth server short anonymous
-events: the screen opened, the reservoir whose page you open, and when you turn on the depth, a
+events: the screen opened; the reservoir whose page you open, whose name you tap on the map or that
+the map is centred on (its name, once per visit, never the position); and when you turn on the depth
+(with the reservoir at the centre), a
 historical photo or a base map, save a spot, start or stop a track, share, export or import GPX,
-change a favourite or the language, finish or skip the welcome tour, open a day of the forecast, search or use your position (only
+change a favourite or the language, reach each step of the welcome tour and finish or skip it, open a day of the forecast, search or use your position (only
 that it was used, never the position), and a sign that the page is still open every 4 minutes
 while you look at it. Each is stored with the country and the type of device of the
 request, the language, a random code of that page visit kept only in the page's memory, and a

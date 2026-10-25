@@ -6,7 +6,7 @@ lang: es
 
 # Privacidad de InfoSpot
 
-Última actualización: 2026-10-21.
+Última actualización: 2026-10-25.
 
 **Resumen: InfoSpot no envía tus datos a nadie, tampoco al autor.** Todo se guarda en tu móvil
 (y en tu propia copia de seguridad de Android, si la usas).
@@ -66,9 +66,10 @@ cookies, no guarda nada en tu navegador y no te identifica ni te sigue entre web
 artículo 6.1.f del RGPD).
 
 Para saber qué partes de la web se usan, también envía al servidor de profundidad de InfoSpot eventos
-anónimos y breves: la pantalla que abres, el embalse cuya ficha abres, y cuando activas la
-profundidad, una foto histórica o un mapa base, guardas una marca, empiezas o terminas un track,
-compartes, exportas o importas un GPX, cambias un favorito o el idioma, terminas o saltas el tour de bienvenida, abres un día de la previsión,
+anónimos y breves: la pantalla que abres; el embalse cuya ficha abres, cuyo nombre tocas en el mapa
+o en el que se centra el mapa (su nombre, una vez por visita, nunca la posición); y cuando activas la
+profundidad (con el embalse del centro), una foto histórica o un mapa base, guardas una marca, empiezas o terminas un track,
+compartes, exportas o importas un GPX, cambias un favorito o el idioma, llegas a cada paso del tour de bienvenida y lo terminas o lo saltas, abres un día de la previsión,
 buscas o usas tu posición (solo que se ha usado, nunca la posición), y una señal de que la página
 sigue abierta cada 4 minutos mientras la miras. Cada uno se guarda con el país y
 el tipo de dispositivo de la petición, el idioma, un código al azar de esa visita a la página que solo
