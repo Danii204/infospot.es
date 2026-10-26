@@ -87,8 +87,11 @@ posiciones.
 
 La profundidad estimada la sirve el servidor de profundidad de InfoSpot en Cloudflare Workers
 (Cloudflare actúa como encargado del tratamiento): la web le pide imágenes del mapa de un embalse y
-la profundidad en el punto que tocas o donde estás (una versión posterior de la app también descargará de él sus
-mapas de profundidad). Para proteger los mapas de profundidad de la copia masiva (ver las
+la profundidad en el punto que tocas o donde estás, y la app de Google Play descarga de él una vez el
+mapa de profundidad de cada embalse. Para asegurarse de que esa descarga viene de la app InfoSpot
+instalada desde Google Play, la app pide antes a Google Play un veredicto de integridad (API Play
+Integrity): Google comprueba la app y el dispositivo, y el servidor solo recibe ese veredicto, que no
+guarda. Para proteger los mapas de profundidad de la copia masiva (ver las
 [condiciones de uso](https://infospot.es/condiciones/)), el
 servidor limita cuántas peticiones hace cada visitante y registra el tipo de petición, el embalse y
 un código obtenido de la dirección IP (nunca la posición consultada) con un secreto que cambia cada mes (la IP no se guarda). Esos
