@@ -1,85 +1,48 @@
 <!doctype html>
-<html lang="en">
+<html lang="es">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>InfoSpot: fishing on the reservoirs of Spain</title>
-<meta name="description" content="InfoSpot: reservoir levels, maps and historical photos, estimated depth, weather and your spots, for fishing on the reservoirs of Spain. On the web and Android.">
+<title>InfoSpot: pesca en los embalses de España</title>
+<meta name="description" content="InfoSpot: nivel de los embalses, mapas y fotos aéreas antiguas, profundidad estimada, tiempo y tus puntos, para pescar en los embalses de España. En la web y en Android.">
+<link rel="canonical" href="https://infospot.es/">
+<link rel="alternate" hreflang="es" href="https://infospot.es/">
+<link rel="alternate" hreflang="en" href="https://infospot.es/en/">
+<link rel="alternate" hreflang="x-default" href="https://infospot.es/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="InfoSpot">
+<meta property="og:title" content="InfoSpot: pesca en los embalses de España">
+<meta property="og:description" content="InfoSpot: nivel de los embalses, mapas y fotos aéreas antiguas, profundidad estimada, tiempo y tus puntos, para pescar en los embalses de España. En la web y en Android.">
+<meta property="og:url" content="https://infospot.es/">
+<meta property="og:image" content="https://infospot.es/img/feature-graphic-es.jpg">
+<meta property="og:locale" content="es_ES">
+<meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#06677f">
-<link rel="icon" href="img/logo.svg?v=2" type="image/svg+xml">
-<link rel="icon" href="img/favicon.png?v=2" sizes="32x32">
-<link rel="apple-touch-icon" href="img/icon-192.png?v=2">
-<style>
-  /* The app's colours and font (Space Grotesk, OFL, served with the web app). */
-  @font-face { font-family: "Space Grotesk"; font-weight: 400; font-display: swap; src: url("app/data/space_grotesk_regular.ttf") format("truetype"); }
-  @font-face { font-family: "Space Grotesk"; font-weight: 600; font-display: swap; src: url("app/data/space_grotesk_semibold.ttf") format("truetype"); }
-  @font-face { font-family: "Space Grotesk"; font-weight: 700; font-display: swap; src: url("app/data/space_grotesk_bold.ttf") format("truetype"); }
-  :root { --bg: #f5fafd; --card: #ffffff; --text: #171c1f; --muted: #40484c; --primary: #06677f; --on-primary: #ffffff;
-    --accent: #cfe6f1; --on-accent: #344a52; --line: #bfc8cc; --hero: linear-gradient(160deg, #003543 0%, #06677f 60%, #4fb3cf 100%); }
-  @media (prefers-color-scheme: dark) { :root { --bg: #0f1416; --card: #1b2023; --text: #dee3e6; --muted: #bfc8cc; --primary: #88d1eb;
-    --on-primary: #003543; --accent: #344a52; --on-accent: #cfe6f1; --line: #40484c; --hero: linear-gradient(160deg, #001f28 0%, #003543 60%, #06677f 100%); } }
-  * { box-sizing: border-box; }
-  body { margin: 0; font-family: "Space Grotesk", system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.5; }
-  a { color: var(--primary); }
-  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 20px; }
-  .beta-bar { background: var(--accent); color: var(--on-accent); font-size: 0.9rem; text-align: center; padding: 8px 16px; }
-  .beta-bar a { color: inherit; }
-  header.top { display: flex; align-items: center; gap: 12px; padding: 14px 0; }
-  header.top img { width: 36px; height: 36px; border-radius: 10px; }
-  header.top .name { font-weight: 800; font-size: 1.25rem; }
-  .tag { background: var(--accent); color: var(--on-accent); border-radius: 6px; padding: 1px 6px; font-size: 0.7rem; font-weight: 600; vertical-align: 2px; }
-  header.top nav { margin-left: auto; display: flex; gap: 18px; align-items: center; }
-  header.top nav a { text-decoration: none; color: var(--text); font-weight: 600; }
-  header.top nav a.hide-small { display: none; }
-  .lang-btn { display: inline-flex; align-items: center; gap: 6px; border: 1px solid var(--line); background: none; color: var(--text);
-    border-radius: 8px; padding: 5px 9px; font: inherit; font-weight: 600; font-size: 0.85rem; cursor: pointer; }
-  .lang-btn svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 1.8; }
-  @media (min-width: 720px) { header.top nav a.hide-small { display: inline; } }
-  .hero { background: var(--hero); color: #fff; }
-  .hero .wrap { display: grid; gap: 32px; padding-top: 48px; padding-bottom: 48px; align-items: center; }
-  @media (min-width: 900px) { .hero .wrap { grid-template-columns: 1.05fr 1fr; padding-top: 72px; padding-bottom: 72px; } }
-  .hero h1 { font-size: clamp(2rem, 5vw, 3.2rem); line-height: 1.1; margin: 0 0 16px; }
-  .hero p { font-size: 1.15rem; color: #d8ecf8; margin: 0 0 24px; max-width: 34em; }
-  .cta { display: flex; flex-wrap: wrap; gap: 12px; }
-  .btn { display: inline-block; padding: 14px 24px; border-radius: 999px; text-decoration: none; font-weight: 700; font-size: 1rem; }
-  .btn.main { background: #fff; color: #06677f; }
-  .btn.ghost { border: 1.5px solid #ffffffaa; color: #fff; }
-  .btn.soon { cursor: default; opacity: 0.85; font-weight: 600; }
-  .hero .ios { font-size: 0.9rem; color: #bfe0f4; margin-top: 14px; }
-  .phones { display: flex; justify-content: center; gap: 14px; }
-  .phones img { width: 31%; max-width: 200px; aspect-ratio: 1 / 2; border-radius: 18px; border: 4px solid #0b2234; box-shadow: 0 12px 30px #0006; background: #0b2234; }
-  .phones img:nth-child(2) { transform: translateY(-18px); }
-  section.block { padding: 56px 0 8px; }
-  section.block h2 { font-size: 1.7rem; margin: 0 0 8px; }
-  section.block > .wrap > p { color: var(--muted); margin: 0 0 24px; max-width: 46em; }
-  .grid { display: grid; gap: 14px; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
-  .card { background: var(--card); border-radius: 18px; padding: 20px; }
-  .card svg { width: 30px; height: 30px; stroke: var(--primary); fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
-  .card h3 { margin: 10px 0 6px; font-size: 1.1rem; }
-  .card p { margin: 0; color: var(--muted); }
-  table { width: 100%; border-collapse: collapse; background: var(--card); border-radius: 18px; overflow: hidden; }
-  th, td { text-align: left; padding: 12px 16px; border-bottom: 1px solid var(--line); }
-  th { font-size: 0.9rem; color: var(--muted); }
-  td.c, th.c { text-align: center; width: 90px; }
-  tr:last-child td { border-bottom: 0; }
-  .yes { color: #1b7f3b; font-weight: 700; } .no { color: var(--muted); }
-  @media (prefers-color-scheme: dark) { .yes { color: #7fd6a0; } }
-  footer { padding: 48px 0 40px; color: var(--muted); font-size: 0.9rem; }
-  footer p { margin: 6px 0; }
-</style>
+<link rel="icon" href="/img/logo.svg?v=2" type="image/svg+xml">
+<link rel="icon" href="/img/favicon.png?v=2" sizes="32x32">
+<link rel="apple-touch-icon" href="/img/icon-192.png?v=2">
+<link rel="stylesheet" href="/site.css">
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@graph": [
+  {"@type": "WebSite", "name": "InfoSpot", "url": "https://infospot.es/", "inLanguage": ["es", "en"]},
+  {"@type": "Organization", "name": "InfoSpot", "url": "https://infospot.es/", "logo": "https://infospot.es/img/icon-512.png", "email": "soporte@infospot.es"},
+  {"@type": "SoftwareApplication", "name": "InfoSpot", "url": "https://infospot.es/app/", "applicationCategory": "SportsApplication", "operatingSystem": "Web, Android",
+    "description": "InfoSpot: nivel de los embalses, mapas y fotos aéreas antiguas, profundidad estimada, tiempo y tus puntos, para pescar en los embalses de España. En la web y en Android.", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "EUR"}}
+]}
+</script>
 </head>
 <body>
-<div class="beta-bar" id="beta-bar"><b>New:</b> InfoSpot has just launched. Tell us what you think at <a href="mailto:soporte@infospot.es">soporte@infospot.es</a>.</div>
+<div class="beta-bar" id="beta-bar"><b>Novedad:</b> InfoSpot acaba de llegar. Cuéntanos qué te parece en <a href="mailto:soporte@infospot.es">soporte@infospot.es</a>.</a>.</div>
 
 <div class="wrap">
   <header class="top">
-    <img src="img/logo.svg" alt="">
+    <img src="/img/logo.svg" alt="">
     <span class="name">InfoSpot</span>
     <nav>
-      <a class="hide-small" href="#features" id="nav-features">Features</a>
-      <a class="hide-small" href="#platforms" id="nav-platforms">Web and Android</a>
-      <a href="app/" id="nav-open">Open</a>
-      <button class="lang-btn" id="lang" type="button" aria-label="Language: English. Change to Spanish" title="Language: English. Change to Spanish"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 3.8 5.6 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.6-3.8-9S9.5 5.6 12 3z"/></svg><span>EN</span></button>
+      <a class="hide-small" href="#features" id="nav-features">Funciones</a>
+      <a class="hide-small" href="#platforms" id="nav-platforms">Web y Android</a>
+      <a href="/app/" id="nav-open">Abrir</a>
+      <a class="lang-btn" id="lang" href="/en/" hreflang="en" aria-label="Idioma: español. Cambiar a inglés" title="Idioma: español. Cambiar a inglés"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 3.8 5.6 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.6-3.8-9S9.5 5.6 12 3z"/></svg><span>ES</span></a>
     </nav>
   </header>
 </div>
@@ -87,56 +50,56 @@
 <div class="hero">
   <div class="wrap">
     <div>
-      <h1 id="title">Your fishing tool for the reservoirs of Spain</h1>
-      <p id="lead">Water levels, maps and old aerial photos, the estimated depth, the weather and your spots, in one place. In the browser, on your phone or your computer, and as an Android app.</p>
+      <h1 id="title">Tu herramienta de pesca para los embalses de España</h1>
+      <p id="lead">El nivel de los embalses, mapas y fotos aéreas antiguas, la profundidad estimada, el tiempo y tus puntos, en un solo sitio. En el navegador, desde el móvil o el ordenador, y como app para Android.</p>
       <div class="cta">
-        <a class="btn main" href="app/" id="open">Open InfoSpot in the browser</a>
-        <span class="btn ghost soon" id="android">Android: coming soon to Google Play</span>
+        <a class="btn main" href="/app/" id="open">Abrir InfoSpot en el navegador</a>
+        <span class="btn ghost soon" id="android">Android: muy pronto en Google Play</span>
       </div>
-      <p class="ios" id="ios">On an iPhone? Use the web version: the iOS app will come later.</p>
+      <p class="ios" id="ios">¿Tienes iPhone? Usa la versión web: la app para iOS llegará más adelante.</p>
     </div>
     <div class="phones">
-      <img id="shot1" src="img/en-home.webp" alt="Home screen: the weather and the moon today">
-      <img id="shot2" src="img/en-depth.webp" alt="Map with the estimated depth of a reservoir">
-      <img id="shot3" src="img/en-reservoir.webp" alt="A reservoir's page: level and forecast">
+      <img id="shot1" src="/img/es-home.webp" alt="Inicio: el tiempo y la luna de hoy">
+      <img id="shot2" src="/img/es-depth.webp" alt="Mapa con la profundidad estimada de un embalse">
+      <img id="shot3" src="/img/es-reservoir.webp" alt="Página de un embalse: nivel y previsión">
     </div>
   </div>
 </div>
 
 <section class="block" id="features">
   <div class="wrap">
-    <h2 id="f-title">What it does</h2>
-    <p id="f-lead">Made by an angler for anglers, for the black bass reservoirs of Spain (and the Baixo Sabor in Portugal).</p>
+    <h2 id="f-title">Qué hace</h2>
+    <p id="f-lead">Hecha por un pescador para pescadores, para los embalses de black bass de España (y el Baixo Sabor en Portugal).</p>
     <div class="grid">
       <div class="card"><svg viewBox="0 0 24 24"><path d="M3 17c2 0 2-1.5 4.5-1.5S9.5 17 12 17s2.5-1.5 4.5-1.5S18.5 17 21 17"/><path d="M3 21c2 0 2-1.5 4.5-1.5S9.5 21 12 21s2.5-1.5 4.5-1.5S18.5 21 21 21"/><path d="M12 3v9m-3-3 3 3 3-3"/></svg>
-        <h3>Water levels</h3><p>56 reservoirs, updated every week, with their history since 1988 and the 10-year average.</p></div>
+        <h3>Nivel de los embalses</h3><p>56 embalses, actualizados cada semana, con su historia desde 1988 y la media de 10 años.</p></div>
       <div class="card"><svg viewBox="0 0 24 24"><path d="M9 4 3 6v14l6-2 6 2 6-2V4l-6 2-6-2z"/><path d="M9 4v14m6-12v14"/></svg>
-        <h3>Maps and old photos</h3><p>Orthophoto, IGN and topographic maps, and aerial photos from 1956 on: see the old roads, walls and riverbed now under water.</p></div>
+        <h3>Mapas y fotos antiguas</h3><p>Ortofoto, mapas del IGN y topográfico, y fotos aéreas desde 1956: mira los caminos, muros y el cauce antiguo que ahora están bajo el agua.</p></div>
       <div class="card"><svg viewBox="0 0 24 24"><path d="M3 6c3 0 3 2 6 2s3-2 6-2 3 2 6 2"/><path d="M5 11c2.5 2 4.5 3 7 3s4.5-1 7-3"/><path d="M8 16c1.3 1 2.6 1.5 4 1.5s2.7-.5 4-1.5"/></svg>
-        <h3>Estimated depth <span class="tag">Beta</span></h3><p>Depth colours and contour lines every 5 m on 42 reservoirs, at today's level or the one you choose.</p></div>
+        <h3>Profundidad estimada <span class="tag">Beta</span></h3><p>Colores de profundidad e isóbatas cada 5 m en 42 embalses, al nivel de hoy o al que elijas.</p></div>
       <div class="card"><svg viewBox="0 0 24 24"><path d="M7 18a4 4 0 1 1 .8-7.9A5.5 5.5 0 0 1 18.5 11 3.5 3.5 0 0 1 18 18z"/></svg>
-        <h3>Weather</h3><p>Now and 7 days hour by hour at each reservoir: wind and gusts, pressure, rain and humidity.</p></div>
+        <h3>Tiempo</h3><p>Ahora y 7 días hora a hora en cada embalse: viento y rachas, presión, lluvia y humedad.</p></div>
       <div class="card"><svg viewBox="0 0 24 24"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"/></svg>
-        <h3>Sun and moon</h3><p>Sunrise and sunset, the moon phase, moonrise and moonset, and the solunar periods.</p></div>
+        <h3>Sol y luna</h3><p>Amanecer y atardecer, la fase de la luna, su salida y puesta, y los periodos solunares.</p></div>
       <div class="card"><svg viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>
-        <h3>Your spots and tracks</h3><p>Mark catches, bites, structure and hazards, record your tracks and move them as GPX. They stay on your device.</p></div>
+        <h3>Tus puntos y tracks</h3><p>Marca capturas, picadas, estructuras y peligros, graba tus tracks y llévatelos en GPX. Se quedan en tu dispositivo.</p></div>
     </div>
   </div>
 </section>
 
 <section class="block" id="platforms">
   <div class="wrap">
-    <h2 id="p-title">Web and Android</h2>
-    <p id="p-lead">The web version works on any phone or computer, with nothing to install. The Android app adds what only an app can do.</p>
+    <h2 id="p-title">Web y Android</h2>
+    <p id="p-lead">La versión web funciona en cualquier móvil u ordenador, sin instalar nada. La app de Android añade lo que solo puede hacer una app.</p>
     <table>
       <thead><tr><th></th><th class="c">Web</th><th class="c">Android</th></tr></thead>
       <tbody>
-        <tr><td>Levels, history and weather</td><td class="c yes">✓</td><td class="c yes">✓</td></tr>
-        <tr><td>Maps, old photos and estimated depth</td><td class="c yes">✓</td><td class="c yes">✓</td></tr>
-        <tr><td>Spots, tracks and GPX</td><td class="c yes">✓</td><td class="c yes">✓</td></tr>
-        <tr><td>Maps without coverage</td><td class="c no">–</td><td class="c yes">✓</td></tr>
-        <tr><td>Daily summary and weather alerts</td><td class="c no">–</td><td class="c yes">✓</td></tr>
-        <tr><td>Recording a track with the screen off</td><td class="c no">–</td><td class="c yes">✓</td></tr>
+        <tr><td>Niveles, historia y tiempo</td><td class="c yes">✓</td><td class="c yes">✓</td></tr>
+        <tr><td>Mapas, fotos antiguas y profundidad estimada</td><td class="c yes">✓</td><td class="c yes">✓</td></tr>
+        <tr><td>Puntos, tracks y GPX</td><td class="c yes">✓</td><td class="c yes">✓</td></tr>
+        <tr><td>Mapas sin cobertura</td><td class="c no">–</td><td class="c yes">✓</td></tr>
+        <tr><td>Resumen diario y avisos del tiempo</td><td class="c no">–</td><td class="c yes">✓</td></tr>
+        <tr><td>Grabar un track con la pantalla apagada</td><td class="c no">–</td><td class="c yes">✓</td></tr>
       </tbody>
     </table>
   </div>
@@ -145,68 +108,21 @@
 
 <footer>
   <div class="wrap">
-    <p><a id="privacy" href="privacy/">Privacy policy</a> · <a id="terms" href="terms/">Terms of use</a> · <a href="mailto:soporte@infospot.es">soporte@infospot.es</a></p>
-    <p id="depth-note">The estimated depth is a guide, not for navigation.</p>
-    <p id="sources">Data: Ministry for the Ecological Transition, embalses.net, Portuguese Environment Agency, IGN and CNIG, DGT, Copernicus, EOX and Open-Meteo.</p>
+    <p><a id="privacy" href="/privacidad/">Política de privacidad</a> · <a id="terms" href="/condiciones/">Condiciones de uso</a> · <a href="mailto:soporte@infospot.es">soporte@infospot.es</a></p>
+    <p id="depth-note">La profundidad estimada es orientativa, no sirve para navegar.</p>
+    <p id="sources">Datos: Ministerio para la Transición Ecológica, embalses.net, Agência Portuguesa do Ambiente, IGN y CNIG, DGT, Copernicus, EOX y Open-Meteo.</p>
   </div>
 </footer>
 
 <script>
-  // Spanish text for Spanish browsers, or the language chosen with the button (kept in this browser,
-  // shared with the web app); the page is static and sends nothing.
+  // Browsers not in Spanish go to the English page unless a language was chosen (kept in this browser,
+  // shared with the web app); crawlers stay, the English page is linked with hreflang.
   var chosen = null;
   try { chosen = localStorage.getItem("infospot.lang"); } catch (e) { /* private mode */ }
-  var spanish = chosen ? chosen === "es" : (navigator.language || "").toLowerCase().indexOf("es") === 0;
   document.getElementById("lang").addEventListener("click", function () {
-    try { localStorage.setItem("infospot.lang", spanish ? "en" : "es"); } catch (e) { /* private mode */ }
-    location.reload();
+    try { localStorage.setItem("infospot.lang", "en"); } catch (e) { /* private mode */ }
   });
-  if (spanish) {
-    var lb = document.getElementById("lang");
-    lb.querySelector("span").textContent = "ES";
-    lb.setAttribute("aria-label", "Idioma: español. Cambiar a inglés");
-    lb.setAttribute("title", "Idioma: español. Cambiar a inglés");
-    document.documentElement.lang = "es";
-    document.title = "InfoSpot: pesca en los embalses de España";
-    var set = function (id, html) { var e = document.getElementById(id); if (e) e.innerHTML = html; };
-    set("beta-bar", "<b>Novedad:</b> InfoSpot acaba de llegar. Cuéntanos qué te parece en <a href=\"mailto:soporte@infospot.es\">soporte@infospot.es</a>.");
-    set("nav-features", "Funciones");
-    set("nav-platforms", "Web y Android");
-    set("nav-open", "Abrir");
-    set("title", "Tu herramienta de pesca para los embalses de España");
-    set("lead", "El nivel de los embalses, mapas y fotos aéreas antiguas, la profundidad estimada, el tiempo y tus puntos, en un solo sitio. En el navegador, desde el móvil o el ordenador, y como app para Android.");
-    set("open", "Abrir InfoSpot en el navegador");
-    set("android", "Android: muy pronto en Google Play");
-    set("ios", "¿Tienes iPhone? Usa la versión web: la app para iOS llegará más adelante.");
-    set("f-title", "Qué hace");
-    set("f-lead", "Hecha por un pescador para pescadores, para los embalses de black bass de España (y el Baixo Sabor en Portugal).");
-    var cards = document.querySelectorAll("#features .card");
-    var es = [
-      ["Nivel de los embalses", "56 embalses, actualizados cada semana, con su historia desde 1988 y la media de 10 años."],
-      ["Mapas y fotos antiguas", "Ortofoto, mapas del IGN y topográfico, y fotos aéreas desde 1956: mira los caminos, muros y el cauce antiguo que ahora están bajo el agua."],
-      ["Profundidad estimada <span class=\"tag\">Beta</span>", "Colores de profundidad e isóbatas cada 5 m en 42 embalses, al nivel de hoy o al que elijas."],
-      ["Tiempo", "Ahora y 7 días hora a hora en cada embalse: viento y rachas, presión, lluvia y humedad."],
-      ["Sol y luna", "Amanecer y atardecer, la fase de la luna, su salida y puesta, y los periodos solunares."],
-      ["Tus puntos y tracks", "Marca capturas, picadas, estructuras y peligros, graba tus tracks y llévatelos en GPX. Se quedan en tu dispositivo."]
-    ];
-    for (var i = 0; i < cards.length; i++) {
-      cards[i].querySelector("h3").innerHTML = es[i][0];
-      cards[i].querySelector("p").textContent = es[i][1];
-    }
-    set("p-title", "Web y Android");
-    set("p-lead", "La versión web funciona en cualquier móvil u ordenador, sin instalar nada. La app de Android añade lo que solo puede hacer una app.");
-    var rows = document.querySelectorAll("#platforms tbody td:first-child");
-    var rs = ["Niveles, historia y tiempo", "Mapas, fotos antiguas y profundidad estimada", "Puntos, tracks y GPX", "Mapas sin cobertura", "Resumen diario y avisos del tiempo", "Grabar un track con la pantalla apagada"];
-    for (var j = 0; j < rows.length; j++) rows[j].textContent = rs[j];
-    set("privacy", "Política de privacidad");
-    document.getElementById("privacy").href = "privacidad/";
-    set("terms", "Condiciones de uso");
-    document.getElementById("terms").href = "condiciones/";
-    set("depth-note", "La profundidad estimada es orientativa, no sirve para navegar.");
-    set("sources", "Datos: Ministerio para la Transición Ecológica, embalses.net, Agência Portuguesa do Ambiente, IGN y CNIG, DGT, Copernicus, EOX y Open-Meteo.");
-    var shots = [["shot1", "es-home", "Inicio: el tiempo y la luna de hoy"], ["shot2", "es-depth", "Mapa con la profundidad estimada de un embalse"], ["shot3", "es-reservoir", "Página de un embalse: nivel y previsión"]];
-    for (var k = 0; k < shots.length; k++) { var im = document.getElementById(shots[k][0]); im.src = "img/" + shots[k][1] + ".webp"; im.alt = shots[k][2]; }
-  }
+  if (chosen !== "es" && (chosen === "en" || (navigator.language || "").toLowerCase().indexOf("es") !== 0) && !/bot|crawl|spider|slurp/i.test(navigator.userAgent)) location.replace("/en/");
 </script>
     <!-- Cloudflare Web Analytics: visits without cookies (see PRIVACY.md). -->
     <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "bb99f63c92e94b67bfe0e6c3a0775a73"}'></script>

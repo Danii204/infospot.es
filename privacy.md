@@ -5,7 +5,7 @@ title: InfoSpot privacy
 
 # InfoSpot privacy
 
-Last updated: 2026-10-25.
+Last updated: 2026-10-26.
 
 **Summary: InfoSpot does not send your data to anyone, including the author.** Everything stays
 on your phone (and in your own Android backup, if you use it).
@@ -87,7 +87,9 @@ tap or where you are (a later app version will also download its depth maps from
 bulk copying (see the [terms of use](https://infospot.es/terms/)), the server limits how many requests each visitor makes and records
 each request type, reservoir and a code made from the IP address (never the position asked) with a secret that changes every
 month (the IP itself is not stored). Those records are kept three months and are used only to detect
-and act against bulk downloading (legitimate interest, GDPR article 6.1.f).
+and act against bulk downloading (legitimate interest, GDPR article 6.1.f). To apply the daily limit,
+the server keeps how many map pictures and points each visitor asked for today, under another code made
+from the IP address; that count is replaced every day.
 
 ## External services
 

@@ -6,7 +6,7 @@ lang: es
 
 # Privacidad de InfoSpot
 
-Última actualización: 2026-10-25.
+Última actualización: 2026-10-26.
 
 **Resumen: InfoSpot no envía tus datos a nadie, tampoco al autor.** Todo se guarda en tu móvil
 (y en tu propia copia de seguridad de Android, si la usas).
@@ -93,7 +93,9 @@ mapas de profundidad). Para proteger los mapas de profundidad de la copia masiva
 servidor limita cuántas peticiones hace cada visitante y registra el tipo de petición, el embalse y
 un código obtenido de la dirección IP (nunca la posición consultada) con un secreto que cambia cada mes (la IP no se guarda). Esos
 registros se conservan tres meses y solo se usan para detectar y actuar contra la descarga masiva
-(interés legítimo, artículo 6.1.f del RGPD).
+(interés legítimo, artículo 6.1.f del RGPD). Para aplicar el límite diario, el servidor guarda cuántas
+imágenes del mapa y puntos ha pedido cada visitante hoy, bajo otro código obtenido de la dirección IP;
+ese recuento se reemplaza cada día.
 
 ## Servicios externos
 
