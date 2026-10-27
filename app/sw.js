@@ -1,14 +1,20 @@
-// The service worker of the website's test build at /beta/ (src/offline.ts registers it only there):
-// the website keeps working without coverage. Its own files and data come from the network and, when
-// the network fails or takes too long, from the "shell" cache; map tiles come from the "tiles" cache
-// (a reservoir saved from its card) and otherwise from the network.
-const SHELL = "shell";
+// The website's service worker (registered by src/offline.ts): the website keeps working without
+// coverage. Its own files and data come from the network and, when the network fails or takes too
+// long, from the caches: this build's files in "shell-<build>", pages, data and the weather in
+// "data" (kept from build to build, so the last forecast survives an update); map tiles come from the "tiles" cache (the pieces
+// downloaded from Layers or a reservoir's page) and otherwise from the network.
+const SHELL = `shell-${new URL(location.href).searchParams.get("v") ?? "0"}`;
 const TILES = "tiles";
+const DATA = "data";
 const WAIT_MS = 4000;
 const TILE_HOSTS = ["www.ign.es", "cartografia.dgterritorio.gov.pt", "tiles.maps.eox.at"];
 
 self.addEventListener("install", () => self.skipWaiting());
-self.addEventListener("activate", (e) => e.waitUntil(self.clients.claim()));
+// Earlier builds' copies of the website go: their hashed files are never asked again.
+self.addEventListener("activate", (e) => e.waitUntil(
+  caches.keys().then((keys) => Promise.all(keys.filter((k) => k.startsWith("shell") && k !== SHELL).map((k) => caches.delete(k))))
+    .then(() => self.clients.claim()),
+));
 
 self.addEventListener("fetch", (e) => {
   const req = e.request;
@@ -32,7 +38,7 @@ async function cacheFirst(req) {
 }
 
 async function networkFirst(req) {
-  const cache = await caches.open(SHELL);
+  const cache = await caches.open(DATA);
   // A page opened at any #route is the same file.
   const key = req.mode === "navigate" ? new URL(req.url).origin + new URL(req.url).pathname : req;
   const net = fetch(req).then((res) => {
@@ -40,6 +46,7 @@ async function networkFirst(req) {
     return res;
   });
   const slow = new Promise((resolve) => setTimeout(resolve, WAIT_MS));
-  const hit = await Promise.race([net.catch(() => undefined), slow]).then((res) => res ?? cache.match(key, { ignoreVary: true, ignoreSearch: req.mode === "navigate" }));
+  // Any cache: the page also keeps what it loaded before this worker ran (src/offline.ts).
+  const hit = await Promise.race([net.catch(() => undefined), slow]).then((res) => res ?? caches.match(key, { ignoreVary: true, ignoreSearch: req.mode === "navigate" }));
   return hit ?? net;
 }
