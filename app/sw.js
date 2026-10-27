@@ -5,7 +5,7 @@
 const SHELL = "shell";
 const TILES = "tiles";
 const WAIT_MS = 4000;
-const TILE_HOSTS = ["www.ign.es", "cartografia.dgterritorio.gov.pt", "tiles.maps.eox.at", "infospot.infospot-worker.workers.dev"];
+const TILE_HOSTS = ["www.ign.es", "cartografia.dgterritorio.gov.pt", "tiles.maps.eox.at"];
 
 self.addEventListener("install", () => self.skipWaiting());
 self.addEventListener("activate", (e) => e.waitUntil(self.clients.claim()));
@@ -14,7 +14,7 @@ self.addEventListener("fetch", (e) => {
   const req = e.request;
   if (req.method !== "GET") return;
   const url = new URL(req.url);
-  if (TILE_HOSTS.includes(url.hostname) && (url.hostname !== "infospot.infospot-worker.workers.dev" || url.pathname.startsWith("/tiles/"))) {
+  if (TILE_HOSTS.includes(url.hostname)) {
     e.respondWith(caches.open(TILES).then((c) => c.match(req, { ignoreVary: true })).then((hit) => hit ?? fetch(req)));
   } else if (url.origin === location.origin || url.hostname === "api.open-meteo.com") {
     // Hashed file names never change: the cache first. Pages and data: the network first.
