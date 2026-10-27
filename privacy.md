@@ -57,8 +57,8 @@ device (clearing the browser's data deletes them; GPX export makes a copy). Your
 directly to the same map, photo and level services as the app (see "External services" below) and to
 Open-Meteo for the weather; like any website, those services see your IP address. The test
 version at `infospot.es/beta` also keeps in the browser a copy of the website, the levels, the last
-weather and the maps of the reservoirs you save, so it works without coverage ("Delete saved maps"
-on a reservoir's card, or clearing the browser's data, removes them).
+weather, the maps you download and the historical years you star, so it works without coverage
+(the delete button next to each download, or clearing the browser's data, removes them).
 
 To know how many people visit it, the website's pages load Cloudflare Web Analytics (Cloudflare acts
 as a processor). It counts visits, the pages seen, the country, the type of device and browser, the

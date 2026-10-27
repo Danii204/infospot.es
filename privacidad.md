@@ -58,9 +58,9 @@ navegador en tu dispositivo (si borras los datos del navegador, se borran; expor
 copia). Tu navegador se conecta directamente a los mismos servicios de mapas, fotos y niveles que la
 app (ver "Servicios externos" más abajo) y a Open-Meteo para el tiempo; como cualquier web, esos
 servicios ven tu dirección IP. La versión de pruebas en `infospot.es/beta` además guarda en el
-navegador una copia de la web, los niveles, el último tiempo y los mapas de los embalses que guardes,
-para funcionar sin cobertura ("Borrar mapas guardados" en la ficha de un embalse, o borrar los datos
-del navegador, los quita).
+navegador una copia de la web, los niveles, el último tiempo, los mapas que descargues y los años
+históricos que marques con estrella, para funcionar sin cobertura (el botón de borrar junto a cada
+descarga, o borrar los datos del navegador, los quita).
 
 Para saber cuánta gente la visita, las páginas de la web cargan Cloudflare Web Analytics (Cloudflare
 actúa como encargado del tratamiento). Cuenta las visitas, las páginas vistas, el país, el tipo de
