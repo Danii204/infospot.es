@@ -83,10 +83,7 @@ the depth where you are is asked to the depth server below, which does not keep 
 
 The estimated depth is served by InfoSpot's depth server on Cloudflare Workers (Cloudflare acts as
 a processor): the website asks it for map pictures of one reservoir and for the depth at a point you
-tap or where you are, and the Google Play app downloads each reservoir's depth map from it once. To
-make sure such a download comes from the InfoSpot app installed from Google Play, the app first asks
-Google Play for an integrity verdict (Play Integrity API): Google checks the app and the device and
-the server receives only that verdict, which it does not keep. To protect the depth maps from
+tap or where you are (a later app version will also download its depth maps from it). To protect the depth maps from
 bulk copying (see the [terms of use](https://infospot.es/terms/)), the server limits how many requests each visitor makes and records
 each request type, reservoir and a code made from the IP address (never the position asked) with a secret that changes every
 month (the IP itself is not stored). Those records are kept three months and are used only to detect
