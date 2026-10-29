@@ -1,0 +1,8 @@
+{
+  "version": 8,
+  "name": "FishingApp",
+  "sources": {},
+  "layers": [
+    { "id": "fondo", "type": "background", "paint": { "background-color": "#1b2a36" } }
+  ]
+}
