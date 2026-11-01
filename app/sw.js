@@ -1,18 +1,21 @@
 // The website's service worker (registered by src/offline.ts): the website keeps working without
 // coverage. Its own files and data come from the network and, when the network fails or takes too
-// long, from the caches: this build's files in "shell-<build>", pages, data and the weather in
+// long, from the caches: this build's files in "shell<base><build>" (/app/ and the test build at /beta/
+// apart), pages, data and the weather in
 // "data" (kept from build to build, so the last forecast survives an update); map tiles come from the "tiles" cache (the pieces
 // downloaded from Layers or a reservoir's page) and otherwise from the network.
-const SHELL = `shell-${new URL(location.href).searchParams.get("v") ?? "0"}`;
+const SHELL_OF_BASE = `shell${new URL(self.registration.scope).pathname}`;
+const SHELL = SHELL_OF_BASE + (new URL(location.href).searchParams.get("v") ?? "0");
 const TILES = "tiles";
 const DATA = "data";
 const WAIT_MS = 4000;
 const TILE_HOSTS = ["www.ign.es", "cartografia.dgterritorio.gov.pt", "tiles.maps.eox.at"];
 
 self.addEventListener("install", () => self.skipWaiting());
-// Earlier builds' copies of the website go: their hashed files are never asked again.
+// Earlier builds' copies of this base go, and the ones named before the bases had their own: their
+// hashed files are never asked again.
 self.addEventListener("activate", (e) => e.waitUntil(
-  caches.keys().then((keys) => Promise.all(keys.filter((k) => k.startsWith("shell") && k !== SHELL).map((k) => caches.delete(k))))
+  caches.keys().then((keys) => Promise.all(keys.filter((k) => (k.startsWith(SHELL_OF_BASE) || k.startsWith("shell-")) && k !== SHELL).map((k) => caches.delete(k))))
     .then(() => self.clients.claim()),
 ));
 
