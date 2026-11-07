@@ -6,7 +6,7 @@ lang: es
 
 # Privacidad de InfoSpot
 
-Última actualización: 2026-10-26.
+Última actualización: 2026-11-05.
 
 **Resumen: InfoSpot no envía tus datos a nadie, tampoco al autor.** Todo se guarda en tu móvil
 (y en tu propia copia de seguridad de Android, si la usas).
@@ -118,6 +118,10 @@ La app se conecta a estos servicios. Como cualquier conexión, ven la dirección
   IGN.
 - EOX (`tiles.maps.eox.at`): teselas de satélite Sentinel-2 de Portugal, mientras el mapa muestra
   Portugal. Las peticiones llevan la zona del mapa, no tu posición GPS.
+- Los mapas del tiempo de InfoSpot (`danii204.github.io`, en GitHub Pages), OpenFreeMap
+  (`tiles.openfreemap.org`) y los AWS Terrain Tiles (`s3.amazonaws.com`): el mapa de viento y lluvia y el
+  mapa de relieve sencillo debajo, solo mientras tienes ese mapa abierto. Las peticiones llevan la zona
+  del mapa, no tu posición GPS.
 - Open-Meteo (`api.open-meteo.com`): previsión del tiempo, como mucho una vez por hora y lugar. Para
   un embalse, la petición lleva la ubicación del embalse. Para Inicio y Tiempo, lleva la zona donde
   estás: tu posición redondeada a una cuadrícula de unos 5 km (0,05°), nunca la posición exacta.

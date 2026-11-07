@@ -5,7 +5,7 @@ title: InfoSpot privacy
 
 # InfoSpot privacy
 
-Last updated: 2026-10-26.
+Last updated: 2026-11-05.
 
 **Summary: InfoSpot does not send your data to anyone, including the author.** Everything stays
 on your phone (and in your own Android backup, if you use it).
@@ -110,6 +110,9 @@ The app connects to these services. Like any connection, they can see your phone
   historical photos.
 - EOX (`tiles.maps.eox.at`): Sentinel-2 satellite tiles of Portugal, while the map shows Portugal.
   The requests carry the map area, not your GPS position.
+- InfoSpot's weather maps (`danii204.github.io`, on GitHub Pages), OpenFreeMap (`tiles.openfreemap.org`)
+  and the AWS Terrain Tiles (`s3.amazonaws.com`): the wind and rain map and the plain relief map under
+  it, only while you have that map open. The requests carry the map area, not your GPS position.
 - Open-Meteo (`api.open-meteo.com`): weather forecast, at most once an hour per place. For a
   reservoir the request carries the reservoir's location. For Home and Weather it carries the area
   where you are: your position rounded to a grid of about 5 km (0.05°), never the exact position.
