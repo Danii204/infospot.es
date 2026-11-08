@@ -55,7 +55,7 @@ The website (`infospot.es/app`) runs in your browser and keeps nothing about you
 favourite reservoirs, your settings (such as the language), your spots, tracks and their photos stay in the browser's own storage on your
 device (clearing the browser's data deletes them; GPX export makes a copy). Your browser connects
 directly to the same map, photo and level services as the app (see "External services" below) and to
-Open-Meteo for the weather; like any website, those services see your IP address. To work without
+Open-Meteo for the weather (and, on a reservoir's page, the wind and rain map's services below); like any website, those services see your IP address. To work without
 coverage it also keeps in the browser a copy of the website, the levels, the last weather, the maps
 you download and the historical years you star (the delete buttons next to each download and at
 the end of the reservoir list, or clearing the browser's data, remove them).
@@ -107,7 +107,8 @@ The app connects to these services. Like any connection, they can see your phone
 - IGN (`www.ign.es/wms/pnoa-historico`): historical aerial photos, only while one is shown on the map
   or being downloaded. The requests carry the map area, not your GPS position.
 - DGT (`cartografia.dgterritorio.gov.pt`): orthophotos of Portugal, the same way as the IGN's
-  historical photos.
+  historical photos. They come first from InfoSpot's copy on the depth server (Cloudflare Workers),
+  which does not record those requests; only beyond the copy from the DGT.
 - EOX (`tiles.maps.eox.at`): Sentinel-2 satellite tiles of Portugal, while the map shows Portugal.
   The requests carry the map area, not your GPS position.
 - InfoSpot's weather maps (`danii204.github.io`, on GitHub Pages), OpenFreeMap (`tiles.openfreemap.org`)

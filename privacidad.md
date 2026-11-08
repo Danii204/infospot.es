@@ -56,7 +56,7 @@ La web (`infospot.es/app`) funciona en tu navegador y no guarda nada sobre ti en
 Tus embalses favoritos, tus ajustes (como el idioma), tus marcas, tracks y sus fotos se quedan en el almacenamiento del propio
 navegador en tu dispositivo (si borras los datos del navegador, se borran; exportar un GPX hace una
 copia). Tu navegador se conecta directamente a los mismos servicios de mapas, fotos y niveles que la
-app (ver "Servicios externos" más abajo) y a Open-Meteo para el tiempo; como cualquier web, esos
+app (ver "Servicios externos" más abajo) y a Open-Meteo para el tiempo (y, en la página de un embalse, los servicios del mapa de viento y lluvia de abajo); como cualquier web, esos
 servicios ven tu dirección IP. Para funcionar sin cobertura, además guarda en el navegador una copia
 de la web, los niveles, el último tiempo, los mapas que descargues y los años históricos que marques
 con estrella (los botones de borrar junto a cada descarga y al final de la lista de embalses, o
@@ -115,7 +115,8 @@ La app se conecta a estos servicios. Como cualquier conexión, ven la dirección
 - IGN (`www.ign.es/wms/pnoa-historico`): fotos aéreas históricas, solo mientras se muestra una en el
   mapa o se descarga. Las peticiones llevan la zona del mapa, no tu posición GPS.
 - DGT (`cartografia.dgterritorio.gov.pt`): ortofotos de Portugal, igual que las fotos históricas del
-  IGN.
+  IGN. Llegan primero de la copia de InfoSpot en el servidor de profundidad (Cloudflare Workers), que
+  no registra esas peticiones; solo fuera de la copia, de la DGT.
 - EOX (`tiles.maps.eox.at`): teselas de satélite Sentinel-2 de Portugal, mientras el mapa muestra
   Portugal. Las peticiones llevan la zona del mapa, no tu posición GPS.
 - Los mapas del tiempo de InfoSpot (`danii204.github.io`, en GitHub Pages), OpenFreeMap

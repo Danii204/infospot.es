@@ -10,6 +10,8 @@ const TILES = "tiles";
 const DATA = "data";
 const WAIT_MS = 4000;
 const TILE_HOSTS = ["www.ign.es", "cartografia.dgterritorio.gov.pt", "tiles.maps.eox.at"];
+// InfoSpot's copy of the DGT's photos on the depth server (its depth tiles are not downloaded).
+const COPY = { host: "infospot.infospot-worker.workers.dev", path: "/ortho/" };
 
 self.addEventListener("install", () => self.skipWaiting());
 // Earlier builds' copies of this base go, and the ones named before the bases had their own: their
@@ -23,7 +25,7 @@ self.addEventListener("fetch", (e) => {
   const req = e.request;
   if (req.method !== "GET") return;
   const url = new URL(req.url);
-  if (TILE_HOSTS.includes(url.hostname)) {
+  if (TILE_HOSTS.includes(url.hostname) || (url.hostname === COPY.host && url.pathname.startsWith(COPY.path))) {
     e.respondWith(caches.open(TILES).then((c) => c.match(req, { ignoreVary: true })).then((hit) => hit ?? fetch(req)));
   } else if (url.origin === location.origin || url.hostname === "api.open-meteo.com") {
     // Hashed file names never change: the cache first. Pages and data: the network first.
