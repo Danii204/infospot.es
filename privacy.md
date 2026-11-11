@@ -5,7 +5,7 @@ title: InfoSpot privacy
 
 # InfoSpot privacy
 
-Last updated: 2026-11-05.
+Last updated: 2026-11-09.
 
 **Summary: InfoSpot does not send your data to anyone, including the author.** Everything stays
 on your phone (and in your own Android backup, if you use it).
@@ -85,13 +85,14 @@ you are, asked to Open-Meteo with the position rounded to about 1 km. With the e
 the depth where you are is asked to the depth server below, which does not keep positions.
 
 The estimated depth is served by InfoSpot's depth server on Cloudflare Workers (Cloudflare acts as
-a processor): the website asks it for map pictures of one reservoir and for the depth at a point you
-tap or where you are (a later app version will also download its depth maps from it). To protect the depth maps from
+a processor): the website asks it for the depth at a point you tap or where you are; the map pictures
+of the depth come from InfoSpot's map storage at `mapas.infospot.es` (Cloudflare R2, which keeps no
+record of them) (a later app version will also download its depth maps from it). To protect the depth maps from
 bulk copying (see the [terms of use](https://infospot.es/terms/)), the server limits how many requests each visitor makes and records
 each request type, reservoir and a code made from the IP address (never the position asked) with a secret that changes every
 month (the IP itself is not stored). Those records are kept three months and are used only to detect
 and act against bulk downloading (legitimate interest, GDPR article 6.1.f). To apply the daily limit,
-the server keeps how many map pictures and points each visitor asked for today, under another code made
+the server keeps how many points each visitor asked for today, under another code made
 from the IP address; that count is replaced every day.
 
 ## External services
@@ -107,7 +108,7 @@ The app connects to these services. Like any connection, they can see your phone
 - IGN (`www.ign.es/wms/pnoa-historico`): historical aerial photos, only while one is shown on the map
   or being downloaded. The requests carry the map area, not your GPS position.
 - DGT (`cartografia.dgterritorio.gov.pt`): orthophotos of Portugal, the same way as the IGN's
-  historical photos. They come first from InfoSpot's copy on the depth server (Cloudflare Workers),
+  historical photos. They come first from InfoSpot's copy at `mapas.infospot.es` (Cloudflare R2),
   which does not record those requests; only beyond the copy from the DGT.
 - EOX (`tiles.maps.eox.at`): Sentinel-2 satellite tiles of Portugal, while the map shows Portugal.
   The requests carry the map area, not your GPS position.

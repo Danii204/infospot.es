@@ -5,7 +5,7 @@
   "historical": {
    "type": "raster",
    "tiles": [
-    "https://infospot.infospot-worker.workers.dev/ortho/pt2010/{z}/{x}/{y}.webp"
+    "https://mapas.infospot.es/ortho/pt2010/{z}/{x}/{y}.webp"
    ],
    "tileSize": 256,
    "maxzoom": 18,

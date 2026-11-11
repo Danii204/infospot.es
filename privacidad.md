@@ -6,7 +6,7 @@ lang: es
 
 # Privacidad de InfoSpot
 
-Última actualización: 2026-11-05.
+Última actualización: 2026-11-09.
 
 **Resumen: InfoSpot no envía tus datos a nadie, tampoco al autor.** Todo se guarda en tu móvil
 (y en tu propia copia de seguridad de Android, si la usas).
@@ -89,15 +89,16 @@ activada, la profundidad donde estás se pide al servidor de profundidad de abaj
 posiciones.
 
 La profundidad estimada la sirve el servidor de profundidad de InfoSpot en Cloudflare Workers
-(Cloudflare actúa como encargado del tratamiento): la web le pide imágenes del mapa de un embalse y
-la profundidad en el punto que tocas o donde estás (una versión posterior de la app también descargará de él sus
+(Cloudflare actúa como encargado del tratamiento): la web le pide la profundidad en el punto que tocas
+o donde estás; las imágenes del mapa de profundidad llegan del almacén de mapas de InfoSpot en
+`mapas.infospot.es` (Cloudflare R2, que no guarda registro de ellas) (una versión posterior de la app también descargará de él sus
 mapas de profundidad). Para proteger los mapas de profundidad de la copia masiva (ver las
 [condiciones de uso](https://infospot.es/condiciones/)), el
 servidor limita cuántas peticiones hace cada visitante y registra el tipo de petición, el embalse y
 un código obtenido de la dirección IP (nunca la posición consultada) con un secreto que cambia cada mes (la IP no se guarda). Esos
 registros se conservan tres meses y solo se usan para detectar y actuar contra la descarga masiva
-(interés legítimo, artículo 6.1.f del RGPD). Para aplicar el límite diario, el servidor guarda cuántas
-imágenes del mapa y puntos ha pedido cada visitante hoy, bajo otro código obtenido de la dirección IP;
+(interés legítimo, artículo 6.1.f del RGPD). Para aplicar el límite diario, el servidor guarda cuántos
+puntos ha pedido cada visitante hoy, bajo otro código obtenido de la dirección IP;
 ese recuento se reemplaza cada día.
 
 ## Servicios externos
@@ -115,8 +116,8 @@ La app se conecta a estos servicios. Como cualquier conexión, ven la dirección
 - IGN (`www.ign.es/wms/pnoa-historico`): fotos aéreas históricas, solo mientras se muestra una en el
   mapa o se descarga. Las peticiones llevan la zona del mapa, no tu posición GPS.
 - DGT (`cartografia.dgterritorio.gov.pt`): ortofotos de Portugal, igual que las fotos históricas del
-  IGN. Llegan primero de la copia de InfoSpot en el servidor de profundidad (Cloudflare Workers), que
-  no registra esas peticiones; solo fuera de la copia, de la DGT.
+  IGN. Llegan primero de la copia de InfoSpot en `mapas.infospot.es` (Cloudflare R2), que no registra
+  esas peticiones; solo fuera de la copia, de la DGT.
 - EOX (`tiles.maps.eox.at`): teselas de satélite Sentinel-2 de Portugal, mientras el mapa muestra
   Portugal. Las peticiones llevan la zona del mapa, no tu posición GPS.
 - Los mapas del tiempo de InfoSpot (`danii204.github.io`, en GitHub Pages), OpenFreeMap
