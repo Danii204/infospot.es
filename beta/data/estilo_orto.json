@@ -9,7 +9,7 @@
       ],
       "tileSize": 256,
       "maxzoom": 20,
-      "attribution": "© Instituto Geográfico Nacional (CC BY 4.0)"
+      "attribution": "PNOA máxima actualidad CC-BY 4.0 scne.es"
     },
     "portugal": {
       "type": "raster",
@@ -24,7 +24,7 @@
         -6.62,
         41.53
       ],
-      "attribution": "© Direção-Geral do Território"
+      "attribution": "© Direção-Geral do Território 2025, CC BY 4.0 (modified)"
     }
   },
   "layers": [
