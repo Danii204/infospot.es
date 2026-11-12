@@ -4,6 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex">
+<!-- Older links carry the spot in the query: never pass the address on to another site. -->
+<meta name="referrer" content="no-referrer">
 <meta name="theme-color" content="#06677f">
 <link rel="icon" href="/img/logo.svg?v=2" type="image/svg+xml">
 <title>InfoSpot spot</title>
@@ -32,8 +34,9 @@
   <p id="note">InfoSpot is a fishing app for Android and the web. This page only reads the link.</p>
 </main>
 <script>
-  // Static page: it only reads the spot from its own link; nothing is sent anywhere.
-  var q = new URLSearchParams(location.search);
+  // Static page: it only reads the spot from its own link; nothing is sent anywhere. Links carry the
+  // spot after "#", which the browser never sends to the server; older links had it after "?".
+  var q = new URLSearchParams(location.hash.length > 1 ? location.hash.slice(1) : location.search);
   var lat = parseFloat(q.get("lat")), lon = parseFloat(q.get("lon"));
   var es = (navigator.language || "").toLowerCase().indexOf("es") === 0;
   var types = es
@@ -56,7 +59,5 @@
     document.getElementById("note").textContent = "InfoSpot es una app de pesca para Android y la web. Esta página solo lee el enlace.";
   }
 </script>
-    <!-- Cloudflare Web Analytics: visits without cookies (see PRIVACY.md). -->
-    <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "bb99f63c92e94b67bfe0e6c3a0775a73"}'></script>
 </body>
 </html>

@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>InfoSpot: pesca en los embalses de España</title>
 <meta name="description" content="InfoSpot: nivel de los embalses, mapas y fotos aéreas antiguas, profundidad estimada, tiempo y tus puntos, para pescar en los embalses de España. En la web y en Android.">
 <link rel="canonical" href="https://infospot.es/">
@@ -14,7 +14,9 @@
 <meta property="og:title" content="InfoSpot: pesca en los embalses de España">
 <meta property="og:description" content="InfoSpot: nivel de los embalses, mapas y fotos aéreas antiguas, profundidad estimada, tiempo y tus puntos, para pescar en los embalses de España. En la web y en Android.">
 <meta property="og:url" content="https://infospot.es/">
-<meta property="og:image" content="https://infospot.es/img/feature-graphic-es.jpg">
+<meta property="og:image" content="https://infospot.es/img/landing/og-map.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
 <meta property="og:locale" content="es_ES">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#06677f">
@@ -22,7 +24,7 @@
 <link rel="icon" href="/img/logo.svg?v=2" type="image/svg+xml">
 <link rel="icon" href="/img/favicon.png?v=2" sizes="32x32">
 <link rel="apple-touch-icon" href="/img/icon-192.png?v=2">
-<link rel="stylesheet" href="/site.css">
+<link rel="stylesheet" href="site.css">
 <script type="application/ld+json">
 {"@context": "https://schema.org", "@graph": [
   {"@type": "WebSite", "name": "InfoSpot", "url": "https://infospot.es/", "inLanguage": ["es", "en"]},
@@ -31,60 +33,104 @@
     "description": "InfoSpot: nivel de los embalses, mapas y fotos aéreas antiguas, profundidad estimada, tiempo y tus puntos, para pescar en los embalses de España. En la web y en Android.", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "EUR"}}
 ]}
 </script>
+<script src="landing.js" defer></script>
 </head>
-<body>
+<body class="home">
 <div class="beta-bar" id="beta-bar"><b>Novedad:</b> la web ya funciona sin cobertura: descarga los mapas y fotos antiguas de tu embalse. Cuéntanos qué te parece en <a href="mailto:soporte@infospot.es">soporte@infospot.es</a>.</div>
 
-<div class="wrap">
-  <header class="top">
-    <img src="/img/logo.svg" alt="">
-    <span class="name">InfoSpot</span>
-    <nav>
-      <a class="hide-small" href="#features" id="nav-features">Funciones</a>
-      <a class="hide-small" href="#platforms" id="nav-platforms">Web y Android</a>
-      <a class="hide-small" href="/embalses/">Embalses</a>
-      <a href="/app/" id="nav-open">Abrir</a>
-      <a class="lang-btn" id="lang" href="/en/" hreflang="en" aria-label="Idioma: español. Cambiar a inglés" title="Idioma: español. Cambiar a inglés"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 3.8 5.6 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.6-3.8-9S9.5 5.6 12 3z"/></svg><span>ES</span></a>
-    </nav>
-  </header>
-</div>
+<main>
+<section class="story" id="story" aria-labelledby="title">
+  <div class="stage">
+    <picture class="today"><source media="(orientation: portrait)" type="image/avif" srcset="img/landing/tall-today-720.avif 720w, img/landing/tall-today-1080.avif 1080w" sizes="100vw"><source media="(orientation: portrait)" type="image/webp" srcset="img/landing/tall-today-720.webp 720w, img/landing/tall-today-1080.webp 1080w" sizes="100vw"><source type="image/avif" srcset="img/landing/wide-today-1600.avif 1600w, img/landing/wide-today-2560.avif 2560w" sizes="100vw"><source type="image/webp" srcset="img/landing/wide-today-1600.webp 1600w, img/landing/wide-today-2560.webp 2560w" sizes="100vw"><img src="img/landing/wide-today-1600.jpg" alt="El embalse del Baixo Sabor visto desde arriba, con la profundidad estimada en colores e isóbatas con su cota cada 10 m" width="2560" height="1440" fetchpriority="high" decoding="async"></picture>
+    <picture class="y2012 later"><source media="(orientation: portrait)" type="image/avif" srcset="img/landing/tall-2012-720.avif 720w, img/landing/tall-2012-1080.avif 1080w" sizes="100vw"><source media="(orientation: portrait)" type="image/webp" srcset="img/landing/tall-2012-720.webp 720w, img/landing/tall-2012-1080.webp 1080w" sizes="100vw"><source type="image/avif" srcset="img/landing/wide-2012-1600.avif 1600w, img/landing/wide-2012-2560.avif 2560w" sizes="100vw"><source type="image/webp" srcset="img/landing/wide-2012-1600.webp 1600w, img/landing/wide-2012-2560.webp 2560w" sizes="100vw"><img src="img/landing/wide-2012-1600.jpg" alt="" width="2560" height="1440" loading="lazy" decoding="async"></picture>
+    <picture class="d100"><source media="(orientation: portrait)" type="image/avif" srcset="img/landing/tall-depth-100-720.avif 720w, img/landing/tall-depth-100-1080.avif 1080w" sizes="100vw"><source media="(orientation: portrait)" type="image/webp" srcset="img/landing/tall-depth-100-720.webp 720w, img/landing/tall-depth-100-1080.webp 1080w" sizes="100vw"><source type="image/avif" srcset="img/landing/wide-depth-100-1600.avif 1600w, img/landing/wide-depth-100-2560.avif 2560w" sizes="100vw"><source type="image/webp" srcset="img/landing/wide-depth-100-1600.webp 1600w, img/landing/wide-depth-100-2560.webp 2560w" sizes="100vw"><img src="img/landing/wide-depth-100-1600.png" alt="" width="2560" height="1440" fetchpriority="high" decoding="async"></picture>
+    <picture class="d85 later"><source media="(orientation: portrait)" type="image/avif" srcset="img/landing/tall-depth-85-720.avif 720w, img/landing/tall-depth-85-1080.avif 1080w" sizes="100vw"><source media="(orientation: portrait)" type="image/webp" srcset="img/landing/tall-depth-85-720.webp 720w, img/landing/tall-depth-85-1080.webp 1080w" sizes="100vw"><source type="image/avif" srcset="img/landing/wide-depth-85-1600.avif 1600w, img/landing/wide-depth-85-2560.avif 2560w" sizes="100vw"><source type="image/webp" srcset="img/landing/wide-depth-85-1600.webp 1600w, img/landing/wide-depth-85-2560.webp 2560w" sizes="100vw"><img src="img/landing/wide-depth-85-1600.png" alt="" width="2560" height="1440" loading="lazy" decoding="async"></picture>
+    <picture class="d50 later"><source media="(orientation: portrait)" type="image/avif" srcset="img/landing/tall-depth-50-720.avif 720w, img/landing/tall-depth-50-1080.avif 1080w" sizes="100vw"><source media="(orientation: portrait)" type="image/webp" srcset="img/landing/tall-depth-50-720.webp 720w, img/landing/tall-depth-50-1080.webp 1080w" sizes="100vw"><source type="image/avif" srcset="img/landing/wide-depth-50-1600.avif 1600w, img/landing/wide-depth-50-2560.avif 2560w" sizes="100vw"><source type="image/webp" srcset="img/landing/wide-depth-50-1600.webp 1600w, img/landing/wide-depth-50-2560.webp 2560w" sizes="100vw"><img src="img/landing/wide-depth-50-1600.png" alt="" width="2560" height="1440" loading="lazy" decoding="async"></picture>
+    <picture class="d25 later"><source media="(orientation: portrait)" type="image/avif" srcset="img/landing/tall-depth-25-720.avif 720w, img/landing/tall-depth-25-1080.avif 1080w" sizes="100vw"><source media="(orientation: portrait)" type="image/webp" srcset="img/landing/tall-depth-25-720.webp 720w, img/landing/tall-depth-25-1080.webp 1080w" sizes="100vw"><source type="image/avif" srcset="img/landing/wide-depth-25-1600.avif 1600w, img/landing/wide-depth-25-2560.avif 2560w" sizes="100vw"><source type="image/webp" srcset="img/landing/wide-depth-25-1600.webp 1600w, img/landing/wide-depth-25-2560.webp 2560w" sizes="100vw"><img src="img/landing/wide-depth-25-1600.png" alt="" width="2560" height="1440" loading="lazy" decoding="async"></picture>
+    <div class="seam" aria-hidden="true"><span>2012</span><span>2025</span></div>
+    <div class="tap" aria-hidden="true"><span class="pin"></span><div class="readout"><small>Profundidad estimada</small><b>unos 68 m de profundidad</b><span>Baixo Sabor · al 85 %</span></div></div>
+    <div class="gauge" aria-hidden="true"><small>Nivel</small><b>100 %</b><span class="bar"><i></i></span></div>
+    <p class="credit">Ortofotos 2012 y 2025: © Direção-Geral do Território, CC BY 4.0, recortadas · Profundidad estimada de InfoSpot, produced using Copernicus WorldDEM-30 © DLR e.V. 2010-2014 and © Airbus Defence and Space GmbH 2014-2018 provided under COPERNICUS by the European Union and ESA; all rights reserved · Contains modified Copernicus Sentinel data 2016-2026 · Landsat courtesy of the U.S. Geological Survey</p>
+  </div>
 
-<div class="hero">
-  <div class="wrap">
-    <div>
-      <h1 id="title">Tu herramienta de pesca para los embalses de España</h1>
-      <p id="lead">El nivel de los embalses, mapas y fotos aéreas antiguas, la profundidad estimada, el tiempo y tus puntos, en un solo sitio. En el navegador, desde el móvil o el ordenador, y como app para Android.</p>
-      <div class="cta">
-        <a class="btn main" href="/app/" id="open">Abrir InfoSpot en el navegador</a>
-        <span class="btn ghost soon" id="android">Android: muy pronto en Google Play</span>
+  <div class="hero-copy">
+    <div class="wrap">
+      <header class="top">
+        <img src="img/logo.svg" alt="">
+        <span class="name">InfoSpot</span>
+        <nav>
+          <a class="hide-small" href="#features" id="nav-features">Funciones</a>
+          <a class="hide-small" href="#platforms" id="nav-platforms">Web y Android</a>
+          <a class="hide-small" href="/embalses/">Embalses</a>
+          <a href="/app/" id="nav-open">Abrir</a>
+          <a class="lang-btn" id="lang" href="en/" hreflang="en" aria-label="Idioma: español. Cambiar a inglés" title="Idioma: español. Cambiar a inglés"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 3.8 5.6 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.6-3.8-9S9.5 5.6 12 3z"/></svg><span>ES</span></a>
+        </nav>
+      </header>
+      <div class="intro">
+        <p class="place">Baixo Sabor (Portugal), con el embalse lleno</p>
+        <h1 id="title">Pesca en los embalses de España sabiendo qué hay debajo</h1>
+        <p class="lead" id="lead">Isóbatas y profundidad estimada, fotos aéreas de antes del agua, el nivel de cada semana y el tiempo. En el navegador y en Android.</p>
+        <div class="cta">
+          <a class="btn main" href="/app/" id="open">Abrir InfoSpot en el navegador</a>
+          <span class="btn ghost soon" id="android">Android: muy pronto en Google Play</span>
+        </div>
+        <p class="ios" id="ios">¿Tienes iPhone? Usa la versión web: la app para iOS llegará más adelante.</p>
       </div>
-      <p class="ios" id="ios">¿Tienes iPhone? Usa la versión web: la app para iOS llegará más adelante.</p>
-    </div>
-    <div class="phones">
-      <img id="shot1" src="/img/es-home.webp" alt="Inicio: el tiempo y la luna de hoy">
-      <img id="shot2" src="/img/es-depth.webp" alt="Mapa con la profundidad estimada de un embalse">
-      <img id="shot3" src="/img/es-reservoir.webp" alt="Página de un embalse: nivel y previsión">
     </div>
   </div>
-</div>
 
-<section class="block" id="features">
+  <div class="step" id="features">
+    <figure class="still"><picture><source media="(orientation: portrait)" type="image/avif" srcset="img/landing/tall-today-720.avif 720w, img/landing/tall-today-1080.avif 1080w" sizes="100vw"><source media="(orientation: portrait)" type="image/webp" srcset="img/landing/tall-today-720.webp 720w, img/landing/tall-today-1080.webp 1080w" sizes="100vw"><source type="image/avif" srcset="img/landing/wide-today-1600.avif 1600w, img/landing/wide-today-2560.avif 2560w" sizes="100vw"><source type="image/webp" srcset="img/landing/wide-today-1600.webp 1600w, img/landing/wide-today-2560.webp 2560w" sizes="100vw"><img src="img/landing/wide-today-1600.jpg" alt="Ortofoto de 2025 del Baixo Sabor: el embalse lleno, sin más detalle que el agua" width="2560" height="1440" loading="lazy" decoding="async"></picture></figure>
+    <div class="note"><h2>Hoy, solo agua</h2><p>Así se ve el Baixo Sabor en la ortofoto de 2025. Desde arriba, el embalse es una mancha oscura: no dice dónde está el fondo.</p></div>
+  </div>
+  <div class="step">
+    <figure class="still"><picture><source media="(orientation: portrait)" type="image/avif" srcset="img/landing/tall-2012-720.avif 720w, img/landing/tall-2012-1080.avif 1080w" sizes="100vw"><source media="(orientation: portrait)" type="image/webp" srcset="img/landing/tall-2012-720.webp 720w, img/landing/tall-2012-1080.webp 1080w" sizes="100vw"><source type="image/avif" srcset="img/landing/wide-2012-1600.avif 1600w, img/landing/wide-2012-2560.avif 2560w" sizes="100vw"><source type="image/webp" srcset="img/landing/wide-2012-1600.webp 1600w, img/landing/wide-2012-2560.webp 2560w" sizes="100vw"><img src="img/landing/wide-2012-1600.jpg" alt="Ortofoto de 2012 del mismo lugar: el valle seco, con el río y su meandro" width="2560" height="1440" loading="lazy" decoding="async"></picture></figure>
+    <div class="note"><h2>2012: el valle antes del agua</h2><p>La foto aérea de 2012, antes de llenarse el embalse: el río, su meandro y los caminos que ahora están bajo el agua. InfoSpot tiene fotos aéreas de cada embalse, en España desde 1956.</p></div>
+  </div>
+  <div class="step">
+    <figure class="still"><picture><source media="(orientation: portrait)" type="image/avif" srcset="img/landing/tall-2012-720.avif 720w, img/landing/tall-2012-1080.avif 1080w" sizes="100vw"><source media="(orientation: portrait)" type="image/webp" srcset="img/landing/tall-2012-720.webp 720w, img/landing/tall-2012-1080.webp 1080w" sizes="100vw"><source type="image/avif" srcset="img/landing/wide-2012-1600.avif 1600w, img/landing/wide-2012-2560.avif 2560w" sizes="100vw"><source type="image/webp" srcset="img/landing/wide-2012-1600.webp 1600w, img/landing/wide-2012-2560.webp 2560w" sizes="100vw"><img src="img/landing/wide-2012-1600.jpg" alt="La profundidad estimada sobre la foto de 2012: las isóbatas siguen la forma del valle" width="2560" height="1440" loading="lazy" decoding="async"></picture><picture><source media="(orientation: portrait)" type="image/avif" srcset="img/landing/tall-depth-100-720.avif 720w, img/landing/tall-depth-100-1080.avif 1080w" sizes="100vw"><source media="(orientation: portrait)" type="image/webp" srcset="img/landing/tall-depth-100-720.webp 720w, img/landing/tall-depth-100-1080.webp 1080w" sizes="100vw"><source type="image/avif" srcset="img/landing/wide-depth-100-1600.avif 1600w, img/landing/wide-depth-100-2560.avif 2560w" sizes="100vw"><source type="image/webp" srcset="img/landing/wide-depth-100-1600.webp 1600w, img/landing/wide-depth-100-2560.webp 2560w" sizes="100vw"><img src="img/landing/wide-depth-100-1600.png" alt="" width="2560" height="1440" loading="lazy" decoding="async"></picture></figure>
+    <div class="note"><h2>La profundidad, línea a línea</h2><p>Colores de profundidad e isóbatas sobre el mapa, con la cota cada 10 m. Es una estimación hecha con años de imágenes de satélite: orientativa, no sirve para navegar.</p></div>
+  </div>
+  <div class="step long">
+    <div class="levels"><figure class="still"><picture><source media="(orientation: portrait)" type="image/avif" srcset="img/landing/tall-2012-720.avif 720w, img/landing/tall-2012-1080.avif 1080w" sizes="(orientation: portrait) 50vw, 40vw"><source media="(orientation: portrait)" type="image/webp" srcset="img/landing/tall-2012-720.webp 720w, img/landing/tall-2012-1080.webp 1080w" sizes="(orientation: portrait) 50vw, 40vw"><source type="image/avif" srcset="img/landing/wide-2012-1600.avif 1600w, img/landing/wide-2012-2560.avif 2560w" sizes="(orientation: portrait) 50vw, 40vw"><source type="image/webp" srcset="img/landing/wide-2012-1600.webp 1600w, img/landing/wide-2012-2560.webp 2560w" sizes="(orientation: portrait) 50vw, 40vw"><img src="img/landing/wide-2012-1600.jpg" alt="La profundidad estimada con el embalse al 100 %" width="2560" height="1440" loading="lazy" decoding="async"></picture><picture><source media="(orientation: portrait)" type="image/avif" srcset="img/landing/tall-depth-100-720.avif 720w, img/landing/tall-depth-100-1080.avif 1080w" sizes="(orientation: portrait) 50vw, 40vw"><source media="(orientation: portrait)" type="image/webp" srcset="img/landing/tall-depth-100-720.webp 720w, img/landing/tall-depth-100-1080.webp 1080w" sizes="(orientation: portrait) 50vw, 40vw"><source type="image/avif" srcset="img/landing/wide-depth-100-1600.avif 1600w, img/landing/wide-depth-100-2560.avif 2560w" sizes="(orientation: portrait) 50vw, 40vw"><source type="image/webp" srcset="img/landing/wide-depth-100-1600.webp 1600w, img/landing/wide-depth-100-2560.webp 2560w" sizes="(orientation: portrait) 50vw, 40vw"><img src="img/landing/wide-depth-100-1600.png" alt="" width="2560" height="1440" loading="lazy" decoding="async"></picture><figcaption>Al 100 %</figcaption></figure><figure class="still"><picture><source media="(orientation: portrait)" type="image/avif" srcset="img/landing/tall-2012-720.avif 720w, img/landing/tall-2012-1080.avif 1080w" sizes="(orientation: portrait) 50vw, 40vw"><source media="(orientation: portrait)" type="image/webp" srcset="img/landing/tall-2012-720.webp 720w, img/landing/tall-2012-1080.webp 1080w" sizes="(orientation: portrait) 50vw, 40vw"><source type="image/avif" srcset="img/landing/wide-2012-1600.avif 1600w, img/landing/wide-2012-2560.avif 2560w" sizes="(orientation: portrait) 50vw, 40vw"><source type="image/webp" srcset="img/landing/wide-2012-1600.webp 1600w, img/landing/wide-2012-2560.webp 2560w" sizes="(orientation: portrait) 50vw, 40vw"><img src="img/landing/wide-2012-1600.jpg" alt="La profundidad estimada con el embalse al 85 %" width="2560" height="1440" loading="lazy" decoding="async"></picture><picture><source media="(orientation: portrait)" type="image/avif" srcset="img/landing/tall-depth-85-720.avif 720w, img/landing/tall-depth-85-1080.avif 1080w" sizes="(orientation: portrait) 50vw, 40vw"><source media="(orientation: portrait)" type="image/webp" srcset="img/landing/tall-depth-85-720.webp 720w, img/landing/tall-depth-85-1080.webp 1080w" sizes="(orientation: portrait) 50vw, 40vw"><source type="image/avif" srcset="img/landing/wide-depth-85-1600.avif 1600w, img/landing/wide-depth-85-2560.avif 2560w" sizes="(orientation: portrait) 50vw, 40vw"><source type="image/webp" srcset="img/landing/wide-depth-85-1600.webp 1600w, img/landing/wide-depth-85-2560.webp 2560w" sizes="(orientation: portrait) 50vw, 40vw"><img src="img/landing/wide-depth-85-1600.png" alt="" width="2560" height="1440" loading="lazy" decoding="async"></picture><figcaption>Al 85 %</figcaption></figure><figure class="still"><picture><source media="(orientation: portrait)" type="image/avif" srcset="img/landing/tall-2012-720.avif 720w, img/landing/tall-2012-1080.avif 1080w" sizes="(orientation: portrait) 50vw, 40vw"><source media="(orientation: portrait)" type="image/webp" srcset="img/landing/tall-2012-720.webp 720w, img/landing/tall-2012-1080.webp 1080w" sizes="(orientation: portrait) 50vw, 40vw"><source type="image/avif" srcset="img/landing/wide-2012-1600.avif 1600w, img/landing/wide-2012-2560.avif 2560w" sizes="(orientation: portrait) 50vw, 40vw"><source type="image/webp" srcset="img/landing/wide-2012-1600.webp 1600w, img/landing/wide-2012-2560.webp 2560w" sizes="(orientation: portrait) 50vw, 40vw"><img src="img/landing/wide-2012-1600.jpg" alt="La profundidad estimada con el embalse al 50 %" width="2560" height="1440" loading="lazy" decoding="async"></picture><picture><source media="(orientation: portrait)" type="image/avif" srcset="img/landing/tall-depth-50-720.avif 720w, img/landing/tall-depth-50-1080.avif 1080w" sizes="(orientation: portrait) 50vw, 40vw"><source media="(orientation: portrait)" type="image/webp" srcset="img/landing/tall-depth-50-720.webp 720w, img/landing/tall-depth-50-1080.webp 1080w" sizes="(orientation: portrait) 50vw, 40vw"><source type="image/avif" srcset="img/landing/wide-depth-50-1600.avif 1600w, img/landing/wide-depth-50-2560.avif 2560w" sizes="(orientation: portrait) 50vw, 40vw"><source type="image/webp" srcset="img/landing/wide-depth-50-1600.webp 1600w, img/landing/wide-depth-50-2560.webp 2560w" sizes="(orientation: portrait) 50vw, 40vw"><img src="img/landing/wide-depth-50-1600.png" alt="" width="2560" height="1440" loading="lazy" decoding="async"></picture><figcaption>Al 50 %</figcaption></figure><figure class="still"><picture><source media="(orientation: portrait)" type="image/avif" srcset="img/landing/tall-2012-720.avif 720w, img/landing/tall-2012-1080.avif 1080w" sizes="(orientation: portrait) 50vw, 40vw"><source media="(orientation: portrait)" type="image/webp" srcset="img/landing/tall-2012-720.webp 720w, img/landing/tall-2012-1080.webp 1080w" sizes="(orientation: portrait) 50vw, 40vw"><source type="image/avif" srcset="img/landing/wide-2012-1600.avif 1600w, img/landing/wide-2012-2560.avif 2560w" sizes="(orientation: portrait) 50vw, 40vw"><source type="image/webp" srcset="img/landing/wide-2012-1600.webp 1600w, img/landing/wide-2012-2560.webp 2560w" sizes="(orientation: portrait) 50vw, 40vw"><img src="img/landing/wide-2012-1600.jpg" alt="La profundidad estimada con el embalse al 25 %" width="2560" height="1440" loading="lazy" decoding="async"></picture><picture><source media="(orientation: portrait)" type="image/avif" srcset="img/landing/tall-depth-25-720.avif 720w, img/landing/tall-depth-25-1080.avif 1080w" sizes="(orientation: portrait) 50vw, 40vw"><source media="(orientation: portrait)" type="image/webp" srcset="img/landing/tall-depth-25-720.webp 720w, img/landing/tall-depth-25-1080.webp 1080w" sizes="(orientation: portrait) 50vw, 40vw"><source type="image/avif" srcset="img/landing/wide-depth-25-1600.avif 1600w, img/landing/wide-depth-25-2560.avif 2560w" sizes="(orientation: portrait) 50vw, 40vw"><source type="image/webp" srcset="img/landing/wide-depth-25-1600.webp 1600w, img/landing/wide-depth-25-2560.webp 2560w" sizes="(orientation: portrait) 50vw, 40vw"><img src="img/landing/wide-depth-25-1600.png" alt="" width="2560" height="1440" loading="lazy" decoding="async"></picture><figcaption>Al 25 %</figcaption></figure></div>
+    <div class="note"><h2>Al nivel de cada semana</h2><p>El embalse sube y baja. InfoSpot dibuja la profundidad al nivel de la última lectura o al que elijas: la orilla se retira y cada punto pierde metros.</p></div>
+  </div>
+  <div class="step">
+    <figure class="still"><picture><source media="(orientation: portrait)" type="image/avif" srcset="img/landing/tall-today-720.avif 720w, img/landing/tall-today-1080.avif 1080w" sizes="100vw"><source media="(orientation: portrait)" type="image/webp" srcset="img/landing/tall-today-720.webp 720w, img/landing/tall-today-1080.webp 1080w" sizes="100vw"><source type="image/avif" srcset="img/landing/wide-today-1600.avif 1600w, img/landing/wide-today-2560.avif 2560w" sizes="100vw"><source type="image/webp" srcset="img/landing/wide-today-1600.webp 1600w, img/landing/wide-today-2560.webp 2560w" sizes="100vw"><img src="img/landing/wide-today-1600.jpg" alt="La profundidad estimada al 85 % sobre la ortofoto de hoy, con un punto tocado en el meandro" width="2560" height="1440" loading="lazy" decoding="async"></picture><picture><source media="(orientation: portrait)" type="image/avif" srcset="img/landing/tall-depth-85-720.avif 720w, img/landing/tall-depth-85-1080.avif 1080w" sizes="100vw"><source media="(orientation: portrait)" type="image/webp" srcset="img/landing/tall-depth-85-720.webp 720w, img/landing/tall-depth-85-1080.webp 1080w" sizes="100vw"><source type="image/avif" srcset="img/landing/wide-depth-85-1600.avif 1600w, img/landing/wide-depth-85-2560.avif 2560w" sizes="100vw"><source type="image/webp" srcset="img/landing/wide-depth-85-1600.webp 1600w, img/landing/wide-depth-85-2560.webp 2560w" sizes="100vw"><img src="img/landing/wide-depth-85-1600.png" alt="" width="2560" height="1440" loading="lazy" decoding="async"></picture><div class="tap" aria-hidden="true"><span class="pin"></span><div class="readout"><small>Profundidad estimada</small><b>unos 68 m de profundidad</b><span>Baixo Sabor · al 85 %</span></div></div></figure>
+    <div class="note"><h2>Toca el agua</h2><p>Toca un punto del mapa y te dice su profundidad estimada. Al marcar un punto, se guarda con ella.</p></div>
+  </div>
+</section>
+
+<section class="block feature">
   <div class="wrap">
-    <h2 id="f-title">Qué hace</h2>
-    <p id="f-lead">Hecha por un pescador para pescadores, para los embalses de black bass de España (y el Baixo Sabor en Portugal).</p>
+    <div class="text">
+      <h2>El nivel de cada embalse</h2>
+      <p>56 embalses: 55 de España y el Baixo Sabor. El dato de cada semana, la historia desde 1988 y la media de los 10 años anteriores.</p>
+      <p><a class="more" href="/embalses/">Ver el nivel de los embalses</a></p>
+    </div>
+    <img class="shot" src="img/landing/es-reservoir.webp" alt="Página de un embalse en la app: nivel, cambio en 7 días, hace un año y media de 10 años" width="540" height="1080" loading="lazy" decoding="async">
+  </div>
+</section>
+
+<section class="block feature flip">
+  <div class="wrap">
+    <div class="text">
+      <h2>El tiempo en el agua</h2>
+      <p>Ahora y 7 días hora a hora en cada embalse: viento y rachas, presión, lluvia y humedad, y el mapa de viento y lluvia de las próximas 48 horas. Con el sol, la luna y los periodos solunares.</p>
+    </div>
+    <img class="shot" src="img/landing/es-forecast.webp" alt="Previsión de un embalse en la app: próximas horas, viento y presión" width="540" height="1080" loading="lazy" decoding="async">
+  </div>
+</section>
+
+<section class="block">
+  <div class="wrap">
+    <h2>Tus puntos y tracks</h2>
+    <p>Lo que encuentras en el agua, guardado donde lo encontraste.</p>
     <div class="grid">
-      <div class="card"><svg viewBox="0 0 24 24"><path d="M3 17c2 0 2-1.5 4.5-1.5S9.5 17 12 17s2.5-1.5 4.5-1.5S18.5 17 21 17"/><path d="M3 21c2 0 2-1.5 4.5-1.5S9.5 21 12 21s2.5-1.5 4.5-1.5S18.5 21 21 21"/><path d="M12 3v9m-3-3 3 3 3-3"/></svg>
-        <h3>Nivel de los embalses</h3><p>56 embalses, actualizados cada semana, con su historia desde 1988 y la media de 10 años.</p></div>
-      <div class="card"><svg viewBox="0 0 24 24"><path d="M9 4 3 6v14l6-2 6 2 6-2V4l-6 2-6-2z"/><path d="M9 4v14m6-12v14"/></svg>
-        <h3>Mapas y fotos antiguas</h3><p>Ortofoto, mapas del IGN y topográfico, y fotos aéreas desde 1956: mira los caminos, muros y el cauce antiguo que ahora están bajo el agua. Descárgalos para verlos sin cobertura, también en la web.</p></div>
-      <div class="card"><svg viewBox="0 0 24 24"><path d="M3 6c3 0 3 2 6 2s3-2 6-2 3 2 6 2"/><path d="M5 11c2.5 2 4.5 3 7 3s4.5-1 7-3"/><path d="M8 16c1.3 1 2.6 1.5 4 1.5s2.7-.5 4-1.5"/></svg>
-        <h3>Profundidad estimada <span class="tag">Beta</span></h3><p>Colores de profundidad e isóbatas cada 5 m en 42 embalses, al nivel de hoy o al que elijas.</p></div>
-      <div class="card"><svg viewBox="0 0 24 24"><path d="M7 18a4 4 0 1 1 .8-7.9A5.5 5.5 0 0 1 18.5 11 3.5 3.5 0 0 1 18 18z"/></svg>
-        <h3>Tiempo</h3><p>Ahora y 7 días hora a hora en cada embalse: viento y rachas, presión, lluvia y humedad.</p></div>
-      <div class="card"><svg viewBox="0 0 24 24"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"/></svg>
-        <h3>Sol y luna</h3><p>Amanecer y atardecer, la fase de la luna, su salida y puesta, y los periodos solunares.</p></div>
-      <div class="card"><svg viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>
-        <h3>Tus puntos y tracks</h3><p>Marca capturas, picadas, estructuras y peligros, graba tus tracks y llévatelos en GPX. Se quedan en tu dispositivo.</p></div>
+      <div class="card"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg><h3>Puntos</h3><p>Marca capturas, picadas, estructuras y peligros, con la profundidad estimada del sitio. Una captura guarda también su peso y una foto.</p></div>
+      <div class="card"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="5" cy="18" r="2"/><circle cx="19" cy="6" r="2"/><path d="M7 18h6a3 3 0 0 0 0-6h-2a3 3 0 0 1 0-6h6"/></svg><h3>Tracks</h3><p>Graba por dónde vas. En Android, también con la pantalla apagada.</p></div>
+      <div class="card"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m-4-4 4 4 4-4"/><path d="M4 17v3h16v-3"/></svg><h3>GPX</h3><p>Exporta e importa puntos y tracks para Google Earth, OsmAnd o Garmin.</p></div>
+      <div class="card"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 4 3 6v14l6-2 6 2 6-2V4l-6 2-6-2z"/><path d="M9 4v14m6-12v14"/></svg><h3>Sin cobertura</h3><p>Descarga los mapas y las fotos antiguas de tu embalse para verlos sin cobertura, también en la web.</p></div>
     </div>
   </div>
 </section>
@@ -108,13 +154,31 @@
   </div>
 </section>
 
+<section class="block">
+  <div class="wrap">
+    <h2>Sin cuenta, y tus datos contigo</h2>
+    <p>No hace falta registrarse. Tus puntos, tracks y fotos se quedan en tu móvil o en tu navegador: InfoSpot no los envía a nadie. Los detalles, en la <a href="/privacidad/">política de privacidad</a>.</p>
+  </div>
+</section>
+
+<section class="block closing">
+  <div class="wrap">
+    <h2>Pruébalo en tu embalse</h2>
+    <p>Funciona en el navegador del móvil o del ordenador, sin instalar nada.</p>
+    <div class="cta">
+      <a class="btn main" href="/app/">Abrir InfoSpot en el navegador</a>
+      <span class="btn ghost soon">Android: muy pronto en Google Play</span>
+    </div>
+  </div>
+</section>
+</main>
 
 <footer>
   <div class="wrap">
     <p><a href="/embalses/">Nivel de los embalses</a></p>
-    <p><a id="privacy" href="/privacidad/">Política de privacidad</a> · <a id="terms" href="/condiciones/">Condiciones de uso</a> · <a href="mailto:soporte@infospot.es">soporte@infospot.es</a></p>
+    <p><a id="privacy" href="/privacidad/">Política de privacidad</a> · <a id="terms" href="/condiciones/">Condiciones de uso</a> · <a id="legal" href="/condiciones/#aviso-legal">Aviso legal</a> · <a href="mailto:soporte@infospot.es">soporte@infospot.es</a></p>
     <p id="depth-note">La profundidad estimada es orientativa, no sirve para navegar.</p>
-    <p id="sources">Datos: Ministerio para la Transición Ecológica, embalses.net, Agência Portuguesa do Ambiente, IGN y CNIG, DGT, Copernicus, EOX y Open-Meteo.</p>
+    <p id="sources">Datos: Ministerio para la Transición Ecológica (Boletín Hidrológico), confederaciones hidrográficas del Miño-Sil, Duero y Guadalquivir, Junta de Andalucía (SAIH Hidrosur), Agència Catalana de l'Aigua, Agência Portuguesa do Ambiente, IGN y CNIG, DGT, Copernicus, EOX, OpenStreetMap y Open-Meteo. <a href="/condiciones/#fuentes-de-datos-y-licencias">Menciones y licencias</a>.</p>
   </div>
 </footer>
 
@@ -126,9 +190,7 @@
   document.getElementById("lang").addEventListener("click", function () {
     try { localStorage.setItem("infospot.lang", "en"); } catch (e) { /* private mode */ }
   });
-  if (chosen !== "es" && (chosen === "en" || (navigator.language || "").toLowerCase().indexOf("es") !== 0) && !/bot|crawl|spider|slurp/i.test(navigator.userAgent)) location.replace("/en/");
+  if (chosen !== "es" && (chosen === "en" || (navigator.language || "").toLowerCase().indexOf("es") !== 0) && !/bot|crawl|spider|slurp/i.test(navigator.userAgent)) location.replace("en/");
 </script>
-    <!-- Cloudflare Web Analytics: visits without cookies (see PRIVACY.md). -->
-    <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "bb99f63c92e94b67bfe0e6c3a0775a73"}'></script>
 </body>
 </html>

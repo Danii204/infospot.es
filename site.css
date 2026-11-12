@@ -24,20 +24,11 @@ header.top nav a.hide-small { display: none; }
   border-radius: 8px; padding: 5px 9px; font: inherit; font-weight: 600; font-size: 0.85rem; cursor: pointer; }
 .lang-btn svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 1.8; }
 @media (min-width: 720px) { header.top nav a.hide-small { display: inline; } }
-.hero { background: var(--hero); color: #fff; }
-.hero .wrap { display: grid; gap: 32px; padding-top: 48px; padding-bottom: 48px; align-items: center; }
-@media (min-width: 900px) { .hero .wrap { grid-template-columns: 1.05fr 1fr; padding-top: 72px; padding-bottom: 72px; } }
-.hero h1 { font-size: clamp(2rem, 5vw, 3.2rem); line-height: 1.1; margin: 0 0 16px; }
-.hero p { font-size: 1.15rem; color: #d8ecf8; margin: 0 0 24px; max-width: 34em; }
 .cta { display: flex; flex-wrap: wrap; gap: 12px; }
 .btn { display: inline-block; padding: 14px 24px; border-radius: 999px; text-decoration: none; font-weight: 700; font-size: 1rem; }
 .btn.main { background: #fff; color: #06677f; }
 .btn.ghost { border: 1.5px solid #ffffffaa; color: #fff; }
 .btn.soon { cursor: default; opacity: 0.85; font-weight: 600; }
-.hero .ios { font-size: 0.9rem; color: #bfe0f4; margin-top: 14px; }
-.phones { display: flex; justify-content: center; gap: 14px; }
-.phones img { width: 31%; max-width: 200px; aspect-ratio: 1 / 2; border-radius: 18px; border: 4px solid #0b2234; box-shadow: 0 12px 30px #0006; background: #0b2234; }
-.phones img:nth-child(2) { transform: translateY(-18px); }
 section.block { padding: 56px 0 8px; }
 section.block h2 { font-size: 1.7rem; margin: 0 0 8px; }
 section.block > .wrap > p { color: var(--muted); margin: 0 0 24px; max-width: 46em; }
@@ -55,6 +46,81 @@ tr:last-child td { border-bottom: 0; }
 @media (prefers-color-scheme: dark) { .yes { color: #7fd6a0; } }
 footer { padding: 48px 0 40px; color: var(--muted); font-size: 0.9rem; }
 footer p { margin: 6px 0; }
+a:focus-visible, .btn:focus-visible { outline: 3px solid #8cc7f0; outline-offset: 3px; border-radius: 6px; }
+/* Home page: the map of Baixo Sabor (pictures from tools/landing_map.py) and its story. Without
+   landing.js, or with reduced motion, each step shows its own still pictures; with it (html.story-on)
+   one pinned map (.stage) changes as the steps scroll past. */
+.story { position: relative; }
+.stage { position: relative; height: 100vh; height: 100svh; overflow: hidden; background: #0b2a40; container-type: size; }
+.stage picture, .still picture { position: absolute; inset: 0; }
+.stage img, .still img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.stage .later, .stage .seam, .stage .tap, .stage .gauge { display: none; }
+.credit { position: absolute; z-index: 1; right: 8px; bottom: calc(6px + env(safe-area-inset-bottom)); margin: 0; padding: 2px 8px;
+  border-radius: 6px; background: #0b2a40cc; color: #fff;
+  /* The licences' notices in full, small and wrapping in the corner. */
+  max-width: min(46rem, calc(100% - 16px)); font-size: 0.6rem; line-height: 1.3; }
+.hero-copy { position: relative; z-index: 2; display: flex; min-height: 100vh; min-height: 100svh; margin-top: -100vh; margin-top: -100svh; color: #fff;
+  background: linear-gradient(to bottom, #0b2a40d9 0, #0b2a4000 150px), linear-gradient(to top, #0b2a40f5 0, #0b2a40ee 52%, #0b2a4000 86%); }
+@media (min-width: 900px) { .hero-copy { background: linear-gradient(to bottom, #0b2a40d9 0, #0b2a4000 150px),
+  linear-gradient(to right, #0b2a40f2 0, #0b2a40de 44%, #0b2a4000 72%), linear-gradient(to top, #0b2a40b3 0, #0b2a4000 40%); } }
+.hero-copy .wrap { display: flex; flex-direction: column; width: 100%; padding-top: env(safe-area-inset-top); }
+.hero-copy header.top nav a { color: #fff; }
+.hero-copy .lang-btn { border-color: #ffffff80; }
+.intro { margin-top: auto; max-width: 40rem; padding-bottom: calc(44px + env(safe-area-inset-bottom)); }
+.place { margin: 0 0 10px; color: #d3e8f5; font-size: 0.85rem; font-weight: 600; }
+.intro h1 { margin: 0 0 14px; font-size: clamp(2rem, 5.4vw, 3.6rem); line-height: 1.06; letter-spacing: -0.01em; text-wrap: balance; }
+.intro .lead { max-width: 34em; margin: 0 0 22px; color: #e3f1f9; font-size: 1.1rem; }
+.intro .ios { margin: 14px 0 0; color: #d3e8f5; font-size: 0.9rem; }
+/* The steps as still pictures and text. */
+.step { display: grid; gap: 16px; max-width: 1080px; margin: 0 auto; padding: 48px 20px 0; }
+.still { position: relative; width: 100%; margin: 0; aspect-ratio: 16 / 9; overflow: hidden; border-radius: 18px; background: #0b2a40; container-type: size; }
+@media (orientation: portrait) { .still { aspect-ratio: 9 / 16; max-height: 80svh; } }
+.levels { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.levels figcaption { position: absolute; z-index: 1; left: 8px; top: 8px; padding: 2px 8px; border-radius: 6px; background: #0b2a40e0; color: #fff; font-size: 0.85rem; font-weight: 700; }
+.note h2 { margin: 0 0 6px; font-size: 1.5rem; line-height: 1.2; }
+.note p { margin: 0; color: var(--muted); }
+/* The point read on the map, placed on the picture as object-fit: cover crops it: its pixel in the wide
+   (--tx, --ty) and tall (--px, --py) frames, printed by tools/landing_map.py. */
+.tap { position: absolute; z-index: 1; --tx: 1334; --ty: 765; --px: 599; --py: 1077; --s: max(100cqw / 2560, 100cqh / 1440);
+  left: calc(50% + (var(--tx) - 1280) * var(--s)); top: calc(50% + (var(--ty) - 720) * var(--s)); }
+@media (orientation: portrait) { .tap { --s: max(100cqw / 1080, 100cqh / 1920);
+  left: calc(50% + (var(--px) - 540) * var(--s)); top: calc(50% + (var(--py) - 960) * var(--s)); } }
+.pin { position: absolute; width: 18px; height: 18px; margin: -9px 0 0 -9px; border: 3px solid #fff; border-radius: 50%; background: #d0322a; box-shadow: 0 0 0 6px #d0322a40, 0 2px 8px #0008; }
+.readout { position: absolute; left: 0; bottom: 20px; transform: translateX(-50%); display: grid; text-align: center; min-width: 11rem; padding: 8px 14px; border-radius: 14px; background: #fff; color: #171c1f; box-shadow: 0 8px 24px #0006; white-space: nowrap; }
+.readout small { color: #40484c; font-size: 0.75rem; }
+.readout b { font-size: 1.05rem; }
+.readout span { color: #40484c; font-size: 0.8rem; }
+.seam { position: absolute; z-index: 1; top: 0; bottom: 0; left: 0; width: 2px; background: #fff; box-shadow: 0 0 10px #000a; transform: translateX(calc(var(--k, 0) * 100cqw)); }
+.seam span { position: absolute; top: 42%; padding: 2px 8px; border-radius: 6px; background: #0b2a40e0; color: #fff; font-size: 0.8rem; font-weight: 700; }
+.seam span:first-child { right: 8px; } .seam span:last-child { left: 8px; }
+.gauge { position: absolute; z-index: 1; right: 12px; top: calc(12px + env(safe-area-inset-top)); width: 104px; white-space: nowrap; padding: 8px 12px 10px; border-radius: 14px; background: #0b2a40e6; color: #fff; text-align: center; }
+.gauge small { display: block; color: #d3e8f5; font-size: 0.75rem; }
+.gauge b { display: block; font-size: 1.5rem; line-height: 1.2; font-variant-numeric: tabular-nums; }
+.gauge .bar { display: block; height: 6px; margin-top: 4px; overflow: hidden; border-radius: 3px; background: #ffffff33; }
+.gauge i { display: block; height: 100%; background: #8cc7f0; transform-origin: left; transform: scaleX(var(--fill, 1)); }
+/* With landing.js: one pinned map, the text in cards over it. */
+.story-on .stage { position: sticky; top: 0; }
+.story-on .stage.live .later, .story-on .stage .seam, .story-on .stage .tap, .story-on .stage .gauge { display: block; }
+.story-on .stage .seam, .story-on .stage .tap, .story-on .stage .gauge { opacity: 0; }
+.story-on .stage picture { will-change: opacity, clip-path; }
+.story-on .still, .story-on .levels { display: none; }
+.story-on .step { position: relative; z-index: 2; display: flex; flex-direction: column; justify-content: flex-end; max-width: none;
+  min-height: 130vh; min-height: 130svh; padding: 0 16px; }
+.story-on .step.long { min-height: 320vh; min-height: 320svh; }
+.story-on .note { position: sticky; bottom: calc(40px + env(safe-area-inset-bottom)); max-width: 25rem; margin-bottom: calc(40px + env(safe-area-inset-bottom));
+  padding: 16px 20px; border-radius: 18px; background: #0b2a40eb; color: #fff; box-shadow: 0 10px 30px #0005; }
+.story-on .note p { color: #d3e8f5; }
+@media (min-width: 900px) { .story-on .step { padding: 0 max(40px, calc((100% - 1040px) / 2)); }
+  .story-on .note { bottom: 64px; margin-bottom: 64px; padding: 20px 24px; } }
+/* After the map. */
+.feature .wrap { display: grid; gap: 28px; align-items: center; }
+.feature .text p { margin: 0 0 12px; color: var(--muted); max-width: 34em; }
+.more { font-weight: 700; }
+.shot { justify-self: center; width: min(280px, 72vw); height: auto; border: 5px solid #0b2234; border-radius: 24px; background: #0b2234; box-shadow: 0 16px 40px #0004; }
+@media (min-width: 800px) { .feature .wrap { grid-template-columns: 1fr 300px; gap: 64px; }
+  .feature.flip .wrap { grid-template-columns: 300px 1fr; } .feature.flip .shot { order: -1; } }
+section.closing { margin-top: 56px; padding: 64px 0; background: var(--hero); color: #fff; }
+section.closing > .wrap > p { color: #d8ecf8; }
 /* Reservoir pages and the list (web/app/scripts/reservoir-pages.mjs). */
 header.top a.name { color: var(--text); text-decoration: none; }
 .res h1 { font-size: clamp(1.8rem, 4vw, 2.4rem); margin: 4px 0 16px; }
