@@ -24,10 +24,9 @@ for this project).
 | --- | --- | --- |
 | Location (precise) | Show your position on the map, mark fishing spots, navigate to them and record tracks; on Home and Weather, the weather, moon and municipality where you are, and the distance to each reservoir (turn it off in Settings → Use my location) | On the phone only (database). The municipality is worked out on the phone from bundled boundaries |
 | Location in a foreground service | Keep recording a track with the screen off, with a visible notification | On the phone only |
-| Internet | Download reservoir levels and map tiles, and check for updates | — |
+| Internet | Download reservoir levels, map tiles and depth maps | — |
 | Notifications | Daily reservoir summary, weather alerts (moon, pressure, rain) and the "Recording track" notice | — |
 | Camera and photos | Photos of a reservoir or of a catch, chosen or taken by you | Phone gallery (`Pictures/FishingApp`); the database keeps the reference, date and note |
-| Install apps | Install the updates you confirm (not in the Google Play version) | — |
 | App log | Find the cause of a failure: starts, syncs, errors (no coordinates, no personal data) | On the phone only, at most about 2 MB; you can share or clear it from Settings → Help and feedback |
 
 All of this stays on your phone: the author never receives it. The app sends no statistics and
@@ -98,7 +97,7 @@ treats as exempt from consent.
 
 **The depth server and the map storage.** The estimated depth is served by InfoSpot's depth server
 (`infospot.infospot-worker.workers.dev`, on Cloudflare Workers; Cloudflare acts as processor): the
-web app asks it for the depth at a point you tap or where you are. The map pictures of the depth and
+web app asks it for the depth at a point you tap or where you are, and the app downloads from it a reservoir's depth map the first time it shows it. The map pictures of the depth and
 the copies of the DGT's orthophotos come from InfoSpot's map storage at `mapas.infospot.es`
 (Cloudflare R2), which keeps no record of who asks for them. To protect the depth maps from bulk
 copying (see the [terms of use](https://infospot.es/terms/)), the depth server limits how many
@@ -130,8 +129,7 @@ against the code of the app and the website on 2026-11-12.
 | Service (host) | Who runs it | What for | App | Website |
 | --- | --- | --- | --- | --- |
 | `infospot.es`, `danii204.github.io` | GitHub (GitHub Pages) | The website, the levels file, the spot page, the wind and rain maps | yes | yes |
-| `github.com`, its download servers, `api.github.com` | GitHub | Updates (not in the Google Play version) and the depth map of a reservoir the first time it is shown | yes | — |
-| `infospot.infospot-worker.workers.dev` | Cloudflare (processor for InfoSpot) | Depth at a point, visit count | — | yes |
+| `infospot.infospot-worker.workers.dev` | Cloudflare (processor for InfoSpot) | Depth at a point, the depth map of a reservoir the first time it is shown (app), visit count | yes | yes |
 | `mapas.infospot.es` | Cloudflare R2 (processor for InfoSpot) | Depth map pictures, copies of the DGT orthophotos | yes | yes |
 | `www.ign.es` | Instituto Geográfico Nacional (Spain) | Orthophoto, base maps, historical photos | yes | yes |
 | `cartografia.dgterritorio.gov.pt` | Direção-Geral do Território (Portugal) | Orthophotos of Portugal beyond InfoSpot's copy | yes | yes |
@@ -167,7 +165,7 @@ your situation (GDPR article 21), by writing to <soporte@infospot.es>.
 
 - Cloudflare, Inc. (depth server, map storage) acts as processor under its data processing addendum;
   the visit counts are stored in a Cloudflare D1 database.
-- GitHub, Inc. hosts the website and the downloads as an independent controller of its own logs.
+- GitHub, Inc. hosts the website and runs the levels job as an independent controller of its own logs.
 - The emails to <soporte@infospot.es> are forwarded by ImprovMX to the author's mailbox.
 - Google provides Google Play and Android backup to you directly.
 
@@ -218,5 +216,4 @@ notes and on the website.
 
 ## Contact
 
-Write to <soporte@infospot.es>, or open an issue at
-<https://github.com/Danii204/FishingApp-releases/issues>.
+Write to <soporte@infospot.es>.

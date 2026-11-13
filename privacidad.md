@@ -25,10 +25,9 @@ protección de datos (no es obligatorio para este proyecto).
 | --- | --- | --- |
 | Ubicación (precisa) | Ver tu posición en el mapa, marcar puntos de pesca, navegar hasta ellos y grabar tracks; en Inicio y Tiempo, el tiempo, la luna y el concello donde estás, y la distancia a cada embalse (se desactiva en Ajustes → Usar mi ubicación) | Solo en el móvil (base de datos). El concello se calcula en el móvil con los límites que trae la app |
 | Ubicación en un servicio en primer plano | Seguir grabando un track con la pantalla apagada, con una notificación visible | Solo en el móvil |
-| Internet | Descargar los niveles de los embalses y el mapa, y buscar actualizaciones | — |
+| Internet | Descargar los niveles de los embalses, los mapas y los mapas de profundidad | — |
 | Notificaciones | Resumen diario de embalses, avisos del tiempo (luna, presión, lluvia) y el aviso de «Grabando track» | — |
 | Cámara y fotos | Fotos de un embalse o de una captura, elegidas o hechas por ti | Galería del móvil (`Imágenes/FishingApp`); la base de datos guarda la referencia, la fecha y la nota |
-| Instalar apps | Instalar las actualizaciones que confirmes (no en la versión de Google Play) | — |
 | Registro de la app | Encontrar la causa de un fallo: arranques, sincronizaciones, errores (sin coordenadas ni datos personales) | Solo en el móvil, unos 2 MB como máximo; se comparte o se borra desde Ajustes → Ayuda y sugerencias |
 
 Todo esto se queda en tu móvil: el autor nunca lo recibe. La app no envía estadísticas y no lleva
@@ -102,7 +101,7 @@ la AEPD sobre herramientas de medición de audiencia (2024) considera exenta de 
 **El servidor de profundidad y el almacén de mapas.** La profundidad estimada la sirve el servidor de
 profundidad de InfoSpot (`infospot.infospot-worker.workers.dev`, en Cloudflare Workers; Cloudflare
 actúa como encargado del tratamiento): la app web le pide la profundidad en un punto que tocas o
-donde estás. Las imágenes de la profundidad y las copias de las ortofotos de la DGT salen del
+donde estás, y la app le descarga el mapa de profundidad de un embalse la primera vez que lo muestra. Las imágenes de la profundidad y las copias de las ortofotos de la DGT salen del
 almacén de mapas de InfoSpot en `mapas.infospot.es` (Cloudflare R2), que no registra quién las pide.
 Para proteger los mapas de profundidad de la copia masiva (ver las [condiciones de
 uso](https://infospot.es/condiciones/)), el servidor de profundidad limita cuántas peticiones hace
@@ -134,8 +133,7 @@ recibe nada de ello. Comprobado en el código de la app y de la web el 2026-11-1
 | Servicio (dirección) | Quién lo presta | Para qué | App | Web |
 | --- | --- | --- | --- | --- |
 | `infospot.es`, `danii204.github.io` | GitHub (GitHub Pages) | La web, el fichero de niveles, la página de un punto, los mapas de viento y lluvia | sí | sí |
-| `github.com`, sus servidores de descarga, `api.github.com` | GitHub | Actualizaciones (no en la versión de Google Play) y el mapa de profundidad de un embalse la primera vez que se muestra | sí | — |
-| `infospot.infospot-worker.workers.dev` | Cloudflare (encargado de InfoSpot) | Profundidad en un punto, recuento de visitas | — | sí |
+| `infospot.infospot-worker.workers.dev` | Cloudflare (encargado de InfoSpot) | Profundidad en un punto, el mapa de profundidad de un embalse la primera vez que se muestra (app), recuento de visitas | sí | sí |
 | `mapas.infospot.es` | Cloudflare R2 (encargado de InfoSpot) | Imágenes de la profundidad, copias de las ortofotos de la DGT | sí | sí |
 | `www.ign.es` | Instituto Geográfico Nacional (España) | Ortofoto, mapas base, fotos históricas | sí | sí |
 | `cartografia.dgterritorio.gov.pt` | Direção-Geral do Território (Portugal) | Ortofotos de Portugal más allá de la copia de InfoSpot | sí | sí |
@@ -172,7 +170,7 @@ motivos relacionados con tu situación (artículo 21 del RGPD), escribiendo a <s
 - Cloudflare, Inc. (servidor de profundidad, almacén de mapas) actúa como encargado del tratamiento
   según su anexo de tratamiento de datos; los recuentos de visitas se guardan en una base de datos D1
   de Cloudflare.
-- GitHub, Inc. aloja la web y las descargas como responsable independiente de sus propios registros.
+- GitHub, Inc. aloja la web y ejecuta el trabajo de niveles como responsable independiente de sus propios registros.
 - Los correos a <soporte@infospot.es> los reenvía ImprovMX al buzón del autor.
 - Google te presta directamente Google Play y la copia de seguridad de Android.
 
@@ -223,5 +221,4 @@ versión de la app y en la web.
 
 ## Contacto
 
-Escribe a <soporte@infospot.es>, o abre una incidencia en
-<https://github.com/Danii204/FishingApp-releases/issues>.
+Escribe a <soporte@infospot.es>.
